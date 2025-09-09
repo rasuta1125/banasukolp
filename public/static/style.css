@@ -1,1 +1,91 @@
-h1 { font-family: Arial, Helvetica, sans-serif; }
+/* カスタムスタイル */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap');
+
+body {
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+/* カスタムアニメーション */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+/* ホバー効果 */
+.hover-scale:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+}
+
+/* グラデーションボタン */
+.gradient-button {
+    background: linear-gradient(135deg, #ff6b35, #f7931e);
+    transition: all 0.3s ease;
+}
+
+.gradient-button:hover {
+    background: linear-gradient(135deg, #ff5722, #ff9800);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(255, 107, 53, 0.3);
+}
+
+/* 固定CTAボタンのスタイル調整 */
+#fixed-cta {
+    display: none;
+    z-index: 1000;
+}
+
+@media (max-width: 768px) {
+    #fixed-cta {
+        display: block;
+    }
+}
+
+/* プライシングカードの特別スタイル */
+.pricing-card-recommended {
+    position: relative;
+    transform: scale(1.05);
+}
+
+.pricing-card-recommended::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(45deg, #ff6b35, #f7931e, #ff6b35);
+    border-radius: inherit;
+    z-index: -1;
+    background-size: 200% 200%;
+    animation: gradient-shift 3s ease infinite;
+}
+
+@keyframes gradient-shift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 640px) {
+    .text-4xl { font-size: 2.25rem; }
+    .text-6xl { font-size: 3rem; }
+}
+
+/* FAQ スタイル */
+.faq-answer {
+    transition: all 0.3s ease;
+}
+
+/* セクション間のスペーシング調整 */
+section {
+    scroll-margin-top: 2rem;
+}
