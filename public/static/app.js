@@ -56,143 +56,135 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(heroSection);
     }
 
-    // CTA ボタンのクリックイベント（デモ用）
-    document.querySelectorAll('button').forEach(button => {
-        if (button.textContent.includes('診断を始める') || button.textContent.includes('始める')) {
-            button.addEventListener('click', function(e) {
-                // aタグでない場合のみアラート表示
-                if (e.target.tagName !== 'A' && e.target.closest('a') === null) {
-                    alert('実装予定：診断画面に遷移します');
-                }
-            });
-        }
+    // CTA ボタンのクリックイベント
+    document.querySelectorAll('.cta-button').forEach(button => {
+        button.addEventListener('click', function(e) {
+            const action = this.getAttribute('data-action');
+            
+            switch(action) {
+                case 'signup':
+                case 'signup-free':
+                    showModal('会員登録', 'バナスコの無料アカウントを作成して診断を始めましょう！', [
+                        { text: 'メールで登録', action: 'email-signup' },
+                        { text: 'Googleで登録', action: 'google-signup' }
+                    ]);
+                    break;
+                    
+                case 'signup-light':
+                    showModal('Light プラン', 'キャンペーン価格 1,000円/月（6か月間）でLightプランを始めませんか？', [
+                        { text: 'Light プランを始める', action: 'light-plan' },
+                        { text: '無料プランから始める', action: 'free-plan' }
+                    ]);
+                    break;
+                    
+                case 'signup-pro':
+                    showModal('Pro プラン', 'Pro プラン（5,000円/月）で本格的な診断を始めませんか？', [
+                        { text: 'Pro プランを始める', action: 'pro-plan' },
+                        { text: '無料プランから始める', action: 'free-plan' }
+                    ]);
+                    break;
+                    
+                case 'contact':
+                    showModal('お問い合わせ', 'バナスコについてご質問やご相談がございましたら、お気軽にお問い合わせください。', [
+                        { text: 'メールで相談', action: 'email-contact' },
+                        { text: '電話で相談', action: 'phone-contact' }
+                    ]);
+                    break;
+                    
+                case 'demo':
+                    showModal('デモ体験', 'バナスコの診断機能を実際に体験してみませんか？', [
+                        { text: '無料体験を始める', action: 'start-demo' },
+                        { text: '資料請求', action: 'download-materials' }
+                    ]);
+                    break;
+                    
+                default:
+                    alert('お問い合わせ機能は準備中です。しばらくお待ちください。');
+            }
+        });
     });
 
-    // デモページの機能（デモページでのみ実行）
-    if (window.location.pathname === '/demo') {
-        initDemoPage();
+    // モーダル表示機能
+    function showModal(title, message, buttons) {
+        // 既存のモーダルがあれば削除
+        const existingModal = document.getElementById('cta-modal');
+        if (existingModal) {
+            existingModal.remove();
+        }
+
+        // モーダル要素を作成
+        const modal = document.createElement('div');
+        modal.id = 'cta-modal';
+        modal.className = 'fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50';
+        
+        const modalContent = document.createElement('div');
+        modalContent.className = 'bg-white rounded-lg p-6 m-4 max-w-md w-full';
+        
+        modalContent.innerHTML = `
+            <div class="text-center">
+                <h3 class="text-xl font-bold text-gray-800 mb-4">${title}</h3>
+                <p class="text-gray-600 mb-6">${message}</p>
+                <div class="space-y-3">
+                    ${buttons.map(btn => `
+                        <button class="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded transition-colors" onclick="handleModalAction('${btn.action}')">
+                            ${btn.text}
+                        </button>
+                    `).join('')}
+                    <button class="w-full bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded transition-colors" onclick="closeModal()">
+                        閉じる
+                    </button>
+                </div>
+            </div>
+        `;
+        
+        modal.appendChild(modalContent);
+        document.body.appendChild(modal);
+
+        // 外側クリックでモーダルを閉じる
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
     }
 
-    function initDemoPage() {
-        const fileInput = document.getElementById('file-input');
-        const uploadArea = document.getElementById('image-upload-area');
-        const imagePreview = document.getElementById('image-preview');
-        const previewImage = document.getElementById('preview-image');
-        const analyzeBtn = document.getElementById('analyze-btn');
-        const loadingState = document.getElementById('loading-state');
-        const resultsArea = document.getElementById('results-area');
-
-        // ファイルアップロード機能
-        if (uploadArea && fileInput) {
-            uploadArea.addEventListener('click', () => fileInput.click());
-            
-            uploadArea.addEventListener('dragover', (e) => {
-                e.preventDefault();
-                uploadArea.classList.add('border-blue-500');
-            });
-
-            uploadArea.addEventListener('dragleave', () => {
-                uploadArea.classList.remove('border-blue-500');
-            });
-
-            uploadArea.addEventListener('drop', (e) => {
-                e.preventDefault();
-                uploadArea.classList.remove('border-blue-500');
-                const files = e.dataTransfer.files;
-                if (files.length > 0) {
-                    handleFileUpload(files[0]);
-                }
-            });
-
-            fileInput.addEventListener('change', (e) => {
-                if (e.target.files.length > 0) {
-                    handleFileUpload(e.target.files[0]);
-                }
-            });
+    // モーダル内ボタンのアクション処理
+    window.handleModalAction = function(action) {
+        closeModal();
+        
+        switch(action) {
+            case 'email-signup':
+            case 'google-signup':
+                alert('ユーザー登録機能は準備中です。\n正式リリースまでお待ちください！');
+                break;
+            case 'light-plan':
+            case 'pro-plan':
+                alert('プラン登録機能は準備中です。\n正式リリースまでお待ちください！');
+                break;
+            case 'email-contact':
+                alert('メール：info@banasco.com\n（準備中）');
+                break;
+            case 'phone-contact':
+                alert('お電話でのお問い合わせは準備中です。');
+                break;
+            case 'start-demo':
+                alert('体験版は準備中です。\n正式リリースをお待ちください！');
+                break;
+            case 'download-materials':
+                alert('資料ダウンロードは準備中です。');
+                break;
+            default:
+                alert('機能は準備中です。');
         }
+    };
 
-        function handleFileUpload(file) {
-            if (file && file.type.startsWith('image/')) {
-                const reader = new FileReader();
-                reader.onload = (e) => {
-                    // カスタム画像をアップロードした場合の処理
-                    if (imagePreview) {
-                        const svgElement = imagePreview.querySelector('svg');
-                        if (svgElement) {
-                            // SVGを新しいimg要素に置換
-                            const newImg = document.createElement('img');
-                            newImg.src = e.target.result;
-                            newImg.className = 'w-full max-w-sm mx-auto rounded-lg';
-                            newImg.alt = 'アップロードされた画像';
-                            
-                            svgElement.parentElement.innerHTML = '';
-                            svgElement.parentElement.appendChild(newImg);
-                        }
-                        
-                        // ラベルを更新
-                        const label = imagePreview.querySelector('p');
-                        if (label) {
-                            label.textContent = 'アップロード画像';
-                        }
-                        
-                        if (analyzeBtn) {
-                            analyzeBtn.disabled = false;
-                            analyzeBtn.classList.remove('opacity-50', 'cursor-not-allowed');
-                        }
-                    }
-                };
-                reader.readAsDataURL(file);
-            }
+    // モーダルを閉じる
+    window.closeModal = function() {
+        const modal = document.getElementById('cta-modal');
+        if (modal) {
+            modal.remove();
         }
-
-        // 診断ボタンのクリック - 初期状態で有効
-        if (analyzeBtn) {
-            // サンプル画像があるので最初から有効
-            analyzeBtn.disabled = false;
-            analyzeBtn.classList.remove('opacity-50', 'cursor-not-allowed');
-            
-            analyzeBtn.addEventListener('click', () => {
-                if (analyzeBtn.disabled) return;
-                
-                startAnalysis();
-            });
-        }
-
-        function startAnalysis() {
-            // ローディング状態表示
-            if (loadingState) {
-                loadingState.classList.remove('hidden');
-            }
-            if (analyzeBtn) {
-                analyzeBtn.disabled = true;
-                analyzeBtn.classList.add('opacity-50', 'cursor-not-allowed');
-            }
-
-            // 3秒後に結果表示
-            setTimeout(() => {
-                showResults();
-            }, 3000);
-        }
-
-        function showResults() {
-            if (loadingState) {
-                loadingState.classList.add('hidden');
-            }
-            if (resultsArea) {
-                resultsArea.classList.remove('hidden');
-                
-                // アニメーション効果
-                resultsArea.style.opacity = '0';
-                resultsArea.style.transform = 'translateY(20px)';
-                
-                setTimeout(() => {
-                    resultsArea.style.transition = 'all 0.5s ease';
-                    resultsArea.style.opacity = '1';
-                    resultsArea.style.transform = 'translateY(0)';
-                }, 100);
-            }
-        }
-    }
+    };
 
     // アニメーション効果
     const observerOptions = {

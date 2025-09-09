@@ -12,19 +12,25 @@ app.get('/', (c) => {
       <section id="hero" className="bg-gradient-to-br from-blue-50 to-orange-50 min-h-screen flex items-center">
         <div className="container mx-auto px-4 py-16">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-              <span className="text-orange-600">画像を読み込み</span> → <span className="text-blue-600">コピー生成</span> → <br className="hidden md:block" />
-              <span className="text-green-600">誤字脱字チェック</span> → <span className="text-purple-600">AIが採点</span>
-            </h1>
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4">
-              広告前チェックをワンクリックで。
-            </h2>
+            <div className="mb-8">
+              <div className="text-lg md:text-xl text-orange-600 font-semibold mb-2">
+                AIがあなたの広告を徹底分析
+              </div>
+              <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-4 leading-tight">
+                <span className="bg-gradient-to-r from-orange-500 to-red-500 bg-clip-text text-transparent">出稿前に分かる</span><br />
+                <span className="text-gray-800">広告の成果予測</span>
+              </h1>
+              <h2 className="text-xl md:text-2xl font-semibold text-gray-700 mb-6">
+                バナー画像をアップロードするだけで、<br className="md:hidden" />
+                <span className="text-blue-600">AIが瞬時に診断・改善提案</span>
+              </h2>
+            </div>
             <p className="text-xl text-gray-600 mb-8">
               広告バナーやSNS投稿を、出稿前にAIで診断。
             </p>
-            <a href="/demo" className="inline-block bg-orange-500 hover:bg-orange-600 text-white text-xl font-bold py-4 px-8 rounded-full shadow-lg transition-all duration-300 hover:scale-105 mb-4 no-underline">
-              無料で診断を始める
-            </a>
+            <button className="bg-orange-500 hover:bg-orange-600 text-white text-xl font-bold py-4 px-8 rounded-full shadow-lg transition-all duration-300 hover:scale-105 mb-4 cta-button" data-action="signup">
+              無料トライアルを開始
+            </button>
             <p className="text-lg text-orange-600 font-semibold">
               初月10回キャンペーン中！
             </p>
@@ -54,20 +60,135 @@ app.get('/', (c) => {
         </div>
       </section>
 
-      {/* 解決策セクション */}
-      <section id="solution" className="py-16 bg-white">
+      {/* AI診断デモセクション */}
+      <section id="demo" className="py-16 bg-white">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
-              バナスコが解決します
+          <div className="max-w-7xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-4">
+              実際のAI診断をご覧ください
             </h2>
-            <div className="bg-gradient-to-r from-blue-100 to-orange-100 p-8 rounded-xl mb-8">
-              <h3 className="text-2xl font-bold text-gray-800 mb-4">
-                バナスコは、広告バナーやSNS投稿を出稿前にAIで診断できるツールです。
-              </h3>
-              <p className="text-xl text-gray-600">
-                作って出して失敗する前に、「効果の出る広告」を見極められます。
+            <p className="text-center text-gray-600 mb-12 text-lg">
+              DMC美容クリニックの広告バナーをAIが診断した結果
+            </p>
+            
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              {/* 左側：診断前のバナー */}
+              <div className="space-y-6">
+                <div className="text-center">
+                  <div className="inline-flex items-center justify-center w-12 h-12 bg-blue-500 text-white rounded-full text-xl font-bold mb-4">
+                    1
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-800 mb-4">診断対象バナー</h3>
+                </div>
+                
+                <div className="bg-gray-50 rounded-xl p-6">
+                  <div className="bg-white rounded-lg p-4 shadow-lg max-w-sm mx-auto">
+                    <svg width="280" height="200" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto">
+                      <defs>
+                        <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+                          <stop offset="0%" style={{stopColor:"#FFB6C1", stopOpacity:1}} />
+                          <stop offset="100%" style={{stopColor:"#FFC0CB", stopOpacity:1}} />
+                        </linearGradient>
+                      </defs>
+                      
+                      <rect width="280" height="200" fill="url(#bg)"/>
+                      
+                      <rect x="10" y="10" width="120" height="150" rx="8" fill="#FFE4E1" stroke="#FF69B4" strokeWidth="1"/>
+                      <text x="70" y="90" textAnchor="middle" fill="#FF1493" fontSize="12" fontWeight="bold">美しい女性</text>
+                      
+                      <text x="140" y="30" fill="#C71585" fontSize="14" fontWeight="bold">やりたいことを全部</text>
+                      <text x="140" y="45" fill="#C71585" fontSize="14" fontWeight="bold">叶える夏にする</text>
+                      
+                      <text x="140" y="65" fill="#8B008B" fontSize="10">DMC美容クリニックの</text>
+                      
+                      <text x="140" y="85" fill="#DC143C" fontSize="16" fontWeight="bold">医療脱毛</text>
+                      
+                      <rect x="140" y="100" width="130" height="30" rx="4" fill="#FFD700" stroke="#FF8C00" strokeWidth="1"/>
+                      <text x="170" y="115" fill="#FF4500" fontSize="9" fontWeight="bold">全身脱毛5回</text>
+                      <text x="200" y="125" fill="#FF4500" fontSize="14" fontWeight="bold">198,000円</text>
+                      
+                      <rect x="140" y="135" width="130" height="20" rx="10" fill="#FF69B4"/>
+                      <text x="205" y="148" textAnchor="middle" fill="white" fontSize="10" fontWeight="bold">無料相談はこちら</text>
+                      
+                      <circle cx="35" cy="40" r="6" fill="#FFB6C1" opacity="0.7"/>
+                      <circle cx="250" cy="170" r="8" fill="#FFC0CB" opacity="0.7"/>
+                    </svg>
+                  </div>
+                  <p className="text-center text-gray-500 mt-4 font-medium">診断前のバナー</p>
+                </div>
+
+                <div className="text-center">
+                  <button className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-all duration-300 hover:scale-105 cta-button" data-action="demo">
+                    <span className="flex items-center justify-center space-x-2">
+                      <span>🤖</span>
+                      <span>実際に試してみる</span>
+                    </span>
+                  </button>
+                </div>
+              </div>
+
+              {/* 右側：診断結果 */}
+              <div className="space-y-6">
+                <div className="text-center">
+                  <div className="inline-flex items-center justify-center w-12 h-12 bg-green-500 text-white rounded-full text-xl font-bold mb-4">
+                    2
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-800 mb-4">AI診断結果</h3>
+                </div>
+
+                <div className="bg-gradient-to-br from-gray-800 to-gray-900 text-white rounded-xl p-6 shadow-2xl">
+                  <div className="flex items-center space-x-3 mb-6">
+                    <span className="text-orange-400 text-2xl">🎯</span>
+                    <h4 className="text-xl font-bold">Aパターン診断結果</h4>
+                  </div>
+                  
+                  {/* スコア表示 */}
+                  <div className="mb-6">
+                    <h5 className="text-sm text-gray-300 mb-3">総合スコア</h5>
+                    <div className="flex items-center space-x-4">
+                      <span className="text-4xl font-bold text-orange-400">B</span>
+                      <div className="flex-1">
+                        <div className="bg-gray-700 rounded-full h-3">
+                          <div className="bg-gradient-to-r from-orange-500 to-yellow-500 h-3 rounded-full" style={{width: "75%"}}></div>
+                        </div>
+                        <p className="text-sm text-gray-300 mt-1">75/100点</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* 改善コメント */}
+                  <div className="mb-6">
+                    <h5 className="text-sm text-gray-300 mb-3">改善コメント</h5>
+                    <div className="bg-gray-700 rounded-lg p-4">
+                      <p className="text-sm leading-relaxed text-gray-200">
+                        情報が多すぎるため、一瞬で内容が伝わりにくいです。見出しや行動喚起のコピーが目立つようにレイアウトを調整すると良いでしょう。特に「医療脱毛」に関する情報をもっと強調して、30代のターゲットに響くメッセージを追加すると効果的です。
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* 薬機法チェック */}
+                  <div className="bg-green-900 border border-green-600 rounded-lg p-4">
+                    <div className="flex items-center space-x-2 mb-2">
+                      <span className="text-green-400 text-lg">✓</span>
+                      <h5 className="text-sm font-semibold text-green-400">薬機法チェック：評価 OK</h5>
+                    </div>
+                    <p className="text-xs text-green-200 leading-relaxed">
+                      このバナーは医療脱毛サービスの広告として適切な表現を使用しています。薬機法・医療法の観点から問題となる表現は確認されません。
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="text-center mt-12">
+              <p className="text-gray-600 mb-6 text-lg">
+                このように、AIが瞬時にバナーを分析し、具体的な改善提案を行います
               </p>
+              <div className="bg-gradient-to-r from-blue-50 to-orange-50 rounded-xl p-6 inline-block">
+                <p className="text-xl font-bold text-gray-800">
+                  📊 スコア評価 + 💡 改善提案 + ⚖️ 法規制チェック = 🚀 成果向上
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -209,9 +330,9 @@ app.get('/', (c) => {
                     投稿診断
                   </li>
                 </ul>
-                <a href="/demo" className="inline-block w-full text-center bg-gray-600 hover:bg-gray-700 text-white font-bold py-3 px-6 rounded-lg transition-colors no-underline">
+                <button className="w-full bg-gray-600 hover:bg-gray-700 text-white font-bold py-3 px-6 rounded-lg transition-colors cta-button" data-action="signup-free">
                   無料で始める
-                </a>
+                </button>
               </div>
 
               {/* Light Plan - おすすめ */}
@@ -244,9 +365,9 @@ app.get('/', (c) => {
                     投稿診断
                   </li>
                 </ul>
-                <a href="/demo" className="inline-block w-full text-center bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-6 rounded-lg transition-colors no-underline">
+                <button className="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-6 rounded-lg transition-colors cta-button" data-action="signup-light">
                   Lightを始める
-                </a>
+                </button>
               </div>
 
               {/* Pro Plan */}
@@ -274,9 +395,9 @@ app.get('/', (c) => {
                     投稿診断
                   </li>
                 </ul>
-                <a href="/demo" className="inline-block w-full text-center bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-lg transition-colors no-underline">
+                <button className="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-lg transition-colors cta-button" data-action="signup-pro">
                   Proを始める
-                </a>
+                </button>
               </div>
             </div>
           </div>
@@ -434,9 +555,9 @@ app.get('/', (c) => {
             <p className="text-xl mb-8">
               初月10回キャンペーン中！無料で診断を始められます。
             </p>
-            <a href="/demo" className="inline-block bg-white text-orange-500 text-xl font-bold py-4 px-8 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 no-underline">
-              今すぐ無料で診断を始める
-            </a>
+            <button className="bg-white text-orange-500 text-xl font-bold py-4 px-8 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 cta-button" data-action="contact">
+              今すぐ無料相談・お申し込み
+            </button>
           </div>
         </div>
       </section>
@@ -444,312 +565,15 @@ app.get('/', (c) => {
       {/* 固定CTAボタン */}
       <div id="fixed-cta" className="fixed bottom-0 left-0 right-0 bg-orange-500 text-white p-4 shadow-lg z-50 md:hidden">
         <div className="text-center">
-          <a href="/demo" className="block w-full text-center bg-white text-orange-500 font-bold py-3 px-6 rounded-lg no-underline">
+          <button className="w-full bg-white text-orange-500 font-bold py-3 px-6 rounded-lg cta-button" data-action="signup">
             無料で診断を始める
-          </a>
+          </button>
         </div>
       </div>
     </div>
   )
 })
 
-// デモページルート
-app.get('/demo', (c) => {
-  return c.render(
-    <div className="min-h-screen bg-gray-900 text-white">
-      {/* ヘッダー */}
-      <header className="bg-gray-800 p-4">
-        <div className="container mx-auto flex items-center justify-between">
-          <div className="flex items-center space-x-2">
-            <span className="text-blue-400 text-xl">🔹</span>
-            <h1 className="text-xl font-bold">AIパターン診断</h1>
-          </div>
-          <div className="flex items-center space-x-4">
-            <a href="/form" className="text-gray-400 hover:text-white transition-colors">詳細フォーム</a>
-            <a href="/" className="text-gray-400 hover:text-white transition-colors">← LPに戻る</a>
-          </div>
-        </div>
-      </header>
 
-      <div className="container mx-auto px-4 py-8">
-        <div className="grid lg:grid-cols-2 gap-8">
-          {/* 左側: アップロード・診断エリア */}
-          <div className="space-y-6">
-            {/* 画像アップロード */}
-            <div className="bg-gray-800 rounded-lg p-6">
-              <h2 className="text-lg font-semibold mb-4">バナー画像</h2>
-              <div id="image-upload-area" className="border-2 border-dashed border-gray-600 rounded-lg p-8 text-center hover:border-gray-500 transition-colors cursor-pointer">
-                <div className="text-4xl mb-4">📁</div>
-                <p className="text-gray-400 mb-2">クリックまたはドラッグ＆ドロップで画像をアップロード</p>
-                <input type="file" id="file-input" accept="image/*" className="hidden" />
-                <button className="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded transition-colors">
-                  ファイルを選択
-                </button>
-              </div>
-              
-              {/* プレビューエリア（サンプル画像を初期表示） */}
-              <div id="image-preview" className="mt-4">
-                <div className="bg-white rounded-lg p-4 max-w-sm mx-auto">
-                  <svg width="280" height="200" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto">
-                    <defs>
-                      <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" style={{stopColor:"#FFB6C1", stopOpacity:1}} />
-                        <stop offset="100%" style={{stopColor:"#FFC0CB", stopOpacity:1}} />
-                      </linearGradient>
-                    </defs>
-                    
-                    <rect width="280" height="200" fill="url(#bg)"/>
-                    
-                    <rect x="10" y="10" width="120" height="150" rx="8" fill="#FFE4E1" stroke="#FF69B4" strokeWidth="1"/>
-                    <text x="70" y="90" textAnchor="middle" fill="#FF1493" fontSize="12" fontWeight="bold">美しい女性</text>
-                    
-                    <text x="140" y="30" fill="#C71585" fontSize="14" fontWeight="bold">やりたいことを全部</text>
-                    <text x="140" y="45" fill="#C71585" fontSize="14" fontWeight="bold">叶える夏にする</text>
-                    
-                    <text x="140" y="65" fill="#8B008B" fontSize="10">DMC美容クリニックの</text>
-                    
-                    <text x="140" y="85" fill="#DC143C" fontSize="16" fontWeight="bold">医療脱毛</text>
-                    
-                    <rect x="140" y="100" width="130" height="30" rx="4" fill="#FFD700" stroke="#FF8C00" strokeWidth="1"/>
-                    <text x="170" y="115" fill="#FF4500" fontSize="9" fontWeight="bold">全身脱毛5回</text>
-                    <text x="200" y="125" fill="#FF4500" fontSize="14" fontWeight="bold">198,000円</text>
-                    
-                    <rect x="140" y="135" width="130" height="20" rx="10" fill="#FF69B4"/>
-                    <text x="205" y="148" textAnchor="middle" fill="white" fontSize="10" fontWeight="bold">無料相談はこちら</text>
-                    
-                    <circle cx="35" cy="40" r="6" fill="#FFB6C1" opacity="0.7"/>
-                    <circle cx="250" cy="170" r="8" fill="#FFC0CB" opacity="0.7"/>
-                  </svg>
-                </div>
-                <p className="text-center text-gray-400 mt-2">Aパターン画像</p>
-              </div>
-            </div>
-
-            {/* 診断ボタン */}
-            <button id="analyze-btn" className="w-full bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 font-bold py-3 px-6 rounded-lg transition-all">
-              Aパターンを採点
-            </button>
-
-            {/* ローディング状態 */}
-            <div id="loading-state" className="hidden bg-gray-800 rounded-lg p-6 text-center">
-              <div className="animate-spin w-8 h-8 border-4 border-blue-500 border-t-transparent rounded-full mx-auto mb-4"></div>
-              <p>AIがパターンを採点中です...</p>
-            </div>
-          </div>
-
-          {/* 右側: 診断結果エリア */}
-          <div id="results-area" className="hidden space-y-6">
-            <div className="bg-gray-800 rounded-lg p-6">
-              <div className="flex items-center space-x-2 mb-4">
-                <span className="text-orange-500">🎯</span>
-                <h2 className="text-lg font-semibold">Aパターン診断結果</h2>
-              </div>
-              
-              {/* スコア表示 */}
-              <div className="mb-6">
-                <h3 className="text-sm text-gray-400 mb-2">総合スコア</h3>
-                <div className="flex items-center space-x-4">
-                  <span id="score-grade" className="text-4xl font-bold text-orange-400">B</span>
-                  <div className="flex-1">
-                    <div className="bg-gray-700 rounded-full h-3">
-                      <div id="score-bar" className="bg-gradient-to-r from-orange-500 to-yellow-500 h-3 rounded-full" style="width: 75%"></div>
-                    </div>
-                    <p className="text-sm text-gray-400 mt-1"><span id="score-number">75</span>/100点</p>
-                  </div>
-                </div>
-              </div>
-
-              {/* 改善コメント */}
-              <div className="mb-6">
-                <h3 className="text-sm text-gray-400 mb-2">改善コメント</h3>
-                <div className="bg-gray-700 rounded-lg p-4">
-                  <p id="improvement-comment" className="text-sm leading-relaxed">
-                    情報が多すぎるため、一瞬で内容が伝わりにくいです。見出しや行動喚起のコピーが目立つようにレイアウトを調整すると良いでしょう。特に「医療脱毛」に関する情報をもっと強調して、30代のターゲットに響くメッセージを追加すると効果的です。価格の「198,000円」がもう少し大きく表示されると、より注目を集められます。
-                  </p>
-                </div>
-              </div>
-
-              {/* 薬機法チェック */}
-              <div className="bg-green-900 border border-green-700 rounded-lg p-4">
-                <div className="flex items-center space-x-2 mb-2">
-                  <span className="text-green-400">✓</span>
-                  <h3 className="text-sm font-semibold text-green-400">薬機法チェック：評価 OK</h3>
-                </div>
-                <p className="text-xs text-green-200 leading-relaxed">
-                  理由: このバナーは医療脱毛サービスの広告として適切な表現を使用しています。「DMC美容クリニック」として医療機関であることを明示し、「医療脱毛」と正しく表記されています。価格表示も具体的で、過度な効果効能の訴求や誇大表現は見られません。「無料相談はこちら」という表現も適切な範囲内です。薬機法・医療法の観点から問題となる表現は確認されません。
-                </p>
-              </div>
-            </div>
-
-            {/* 診断結果保存 */}
-            <div className="bg-gray-800 rounded-lg p-4">
-              <button className="w-full bg-green-600 hover:bg-green-700 font-bold py-2 px-4 rounded transition-colors">
-                診断結果をFirestoreに記録しました！
-              </button>
-            </div>
-
-            <div className="bg-gray-800 rounded-lg p-4">
-              <p className="text-center text-green-400 font-semibold">Aパターンの診断が完了しました！</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  )
-})
-
-// バナー診断フォームページ
-app.get('/form', (c) => {
-  return c.render(
-    <div className="min-h-screen bg-gray-900 text-white">
-      {/* ヘッダー */}
-      <header className="bg-gray-800 p-4">
-        <div className="container mx-auto flex items-center justify-between">
-          <div className="flex items-center space-x-2">
-            <span className="text-blue-400 text-xl">📋</span>
-            <h1 className="text-xl font-bold">バナー診断フォーム</h1>
-          </div>
-          <div className="flex items-center space-x-4">
-            <a href="/demo" className="text-gray-400 hover:text-white transition-colors">AI診断</a>
-            <a href="/" className="text-gray-400 hover:text-white transition-colors">← LPに戻る</a>
-          </div>
-        </div>
-      </header>
-
-      <div className="container mx-auto px-4 py-8">
-        <div className="grid lg:grid-cols-2 gap-8">
-          {/* 左側: フォーム */}
-          <div className="space-y-6">
-            <div className="bg-gray-800 rounded-lg p-6">
-              <h2 className="text-lg font-semibold mb-6">基本情報</h2>
-              
-              <div className="space-y-4">
-                <div>
-                  <label className="block text-sm text-gray-400 mb-2">バナー名</label>
-                  <input type="text" className="w-full bg-gray-700 border border-gray-600 rounded px-3 py-2 text-white focus:outline-none focus:border-blue-500" placeholder="例: 美容クリニック広告" />
-                </div>
-
-                <div>
-                  <label className="block text-sm text-gray-400 mb-2">ターゲット年代</label>
-                  <select className="w-full bg-gray-700 border border-gray-600 rounded px-3 py-2 text-white focus:outline-none focus:border-blue-500">
-                    <option>30代</option>
-                    <option>20代</option>
-                    <option>40代</option>
-                    <option>50代</option>
-                    <option>60代以上</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label className="block text-sm text-gray-400 mb-2">媒体</label>
-                  <select className="w-full bg-gray-700 border border-gray-600 rounded px-3 py-2 text-white focus:outline-none focus:border-blue-500">
-                    <option>Instagram</option>
-                    <option>Facebook</option>
-                    <option>Google Ads</option>
-                    <option>Yahoo広告</option>
-                    <option>LINE広告</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label className="block text-sm text-gray-400 mb-2">カテゴリ</label>
-                  <select className="w-full bg-gray-700 border border-gray-600 rounded px-3 py-2 text-white focus:outline-none focus:border-blue-500">
-                    <option>美容</option>
-                    <option>健康</option>
-                    <option>ファッション</option>
-                    <option>グルメ</option>
-                    <option>サービス</option>
-                    <option>不動産</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label className="block text-sm text-gray-400 mb-2">広告予算</label>
-                  <select className="w-full bg-gray-700 border border-gray-600 rounded px-3 py-2 text-white focus:outline-none focus:border-blue-500">
-                    <option>あり</option>
-                    <option>なし</option>
-                    <option>未定</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label className="block text-sm text-gray-400 mb-2">目的</label>
-                  <select className="w-full bg-gray-700 border border-gray-600 rounded px-3 py-2 text-white focus:outline-none focus:border-blue-500">
-                    <option>ブランド認知向上</option>
-                    <option>コンバージョン獲得</option>
-                    <option>リード獲得</option>
-                    <option>売上向上</option>
-                  </select>
-                </div>
-              </div>
-
-              <button className="w-full mt-6 bg-blue-600 hover:bg-blue-700 font-bold py-3 px-6 rounded transition-colors">
-                診断設定を保存
-              </button>
-            </div>
-          </div>
-
-          {/* 右側: 採点基準 */}
-          <div className="space-y-6">
-            <div className="bg-gray-800 rounded-lg p-6">
-              <h2 className="text-lg font-semibold mb-4">採点基準</h2>
-              <p className="text-sm text-gray-400 mb-4">バナスコは以下の採点基準で広告効果を評価します。</p>
-              
-              <div className="space-y-4">
-                <div>
-                  <div className="flex items-center space-x-2 mb-2">
-                    <span className="w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-bold">1</span>
-                    <h3 className="font-semibold">内容が一瞬で伝わるか</h3>
-                  </div>
-                  <p className="text-sm text-gray-400 ml-8">伝えたいことが素の1秒でターゲットに伝わるか。</p>
-                </div>
-
-                <div>
-                  <div className="flex items-center space-x-2 mb-2">
-                    <span className="w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-bold">2</span>
-                    <h3 className="font-semibold">コピーの見やすさ</h3>
-                  </div>
-                  <p className="text-sm text-gray-400 ml-8">文字が読みやすいか。サイズや配色は適切かの。</p>
-                </div>
-
-                <div>
-                  <div className="flex items-center space-x-2 mb-2">
-                    <span className="w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-bold">3</span>
-                    <h3 className="font-semibold">行動喚起の明確さ</h3>
-                  </div>
-                  <p className="text-sm text-gray-400 ml-8">「今すぐ申込」「LINE登録」などの行動喚起が明確で、ユーザーを誘導できているか。</p>
-                </div>
-
-                <div>
-                  <div className="flex items-center space-x-2 mb-2">
-                    <span className="w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-bold">4</span>
-                    <h3 className="font-semibold">写真とテキストの調和性</h3>
-                  </div>
-                  <p className="text-sm text-gray-400 ml-8">背景画像と文字が干渉しく、全体として調和が取れているか。</p>
-                </div>
-
-                <div>
-                  <div className="flex items-center space-x-2 mb-2">
-                    <span className="w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-bold">5</span>
-                    <h3 className="font-semibold">情報のバランス</h3>
-                  </div>
-                  <p className="text-sm text-gray-400 ml-8">文字が多すぎず、視覚的に適当所に配慮されているか。</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-blue-900 border border-blue-700 rounded-lg p-4">
-              <div className="text-center">
-                <div className="text-2xl mb-2">🎯</div>
-                <h3 className="font-semibold mb-2">診断の精度向上中</h3>
-                <p className="text-sm text-blue-200">より良い診断のため、フォーム入力にご協力ください。</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  )
-})
 
 export default app
