@@ -11,188 +11,345 @@ app.get('/', (c) => {
       {/* Hero Section */}
       <section id="hero" className="bg-gradient-to-br from-blue-50 to-orange-50 min-h-screen flex items-center">
         <div className="container mx-auto px-4 py-16">
-          <div className="max-w-4xl mx-auto text-center">
-            <div className="mb-8">
-              <div className="text-lg md:text-xl text-orange-600 font-semibold mb-2">
-                AIがあなたの広告を徹底分析
-              </div>
-              <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-4 leading-tight">
-                <span className="bg-gradient-to-r from-orange-500 to-red-500 bg-clip-text text-transparent">出稿前に分かる</span><br />
-                <span className="text-gray-800">広告の成果予測</span>
-              </h1>
-              <h2 className="text-xl md:text-2xl font-semibold text-gray-700 mb-6">
-                バナー画像をアップロードするだけで、<br className="md:hidden" />
-                <span className="text-blue-600">AIが瞬時に診断・改善提案</span>
-              </h2>
-            </div>
-            <p className="text-xl text-gray-600 mb-8">
-              広告バナーやSNS投稿を、出稿前にAIで診断。
-            </p>
-            <button className="bg-orange-500 hover:bg-orange-600 text-white text-xl font-bold py-4 px-8 rounded-full shadow-lg transition-all duration-300 hover:scale-105 mb-4 cta-button" data-action="signup">
-              無料トライアルを開始
-            </button>
-            <p className="text-lg text-orange-600 font-semibold">
-              初月10回キャンペーン中！
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* 課題提示セクション */}
-      <section id="problems" className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <div className="grid md:grid-cols-3 gap-8 mb-12">
-              <div className="bg-white p-6 rounded-lg shadow-md">
-                <div className="text-4xl text-red-500 mb-4">😔</div>
-                <h3 className="text-xl font-bold text-gray-800 mb-2">広告を出しても成果が出ない…</h3>
-              </div>
-              <div className="bg-white p-6 rounded-lg shadow-md">
-                <div className="text-4xl text-orange-500 mb-4">🤔</div>
-                <h3 className="text-xl font-bold text-gray-800 mb-2">デザインは悪くないのに反応がない…</h3>
-              </div>
-              <div className="bg-white p-6 rounded-lg shadow-md">
-                <div className="text-4xl text-blue-500 mb-4">💡</div>
-                <h3 className="text-xl font-bold text-gray-800 mb-2">そんな悩みの原因は「クリエイティブの質」にあります</h3>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* AI診断デモセクション */}
-      <section id="demo" className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="max-w-7xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-4">
-              実際のAI診断をご覧ください
-            </h2>
-            <p className="text-center text-gray-600 mb-12 text-lg">
-              DMC美容クリニックの広告バナーをAIが診断した結果
-            </p>
-            
+          <div className="max-w-6xl mx-auto">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
-              {/* 左側：診断前のバナー */}
-              <div className="space-y-6">
-                <div className="text-center">
-                  <div className="inline-flex items-center justify-center w-12 h-12 bg-blue-500 text-white rounded-full text-xl font-bold mb-4">
-                    1
+              {/* 左側：メインコピー */}
+              <div className="text-center lg:text-left">
+                <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+                  出稿前30秒で、<br />
+                  <span className="bg-gradient-to-r from-orange-500 to-red-500 bg-clip-text text-transparent">作って・直して・</span><br />
+                  <span className="text-gray-800">そのまま投稿。</span>
+                </h1>
+                <p className="text-lg md:text-xl text-gray-700 mb-8 leading-relaxed">
+                  画像をアップするだけ。AIがスコア化／最適CTA提案／投稿文・ハッシュタグ生成を自動実行。<br />
+                  投稿前チェックと<strong>薬機法チェック（全プラン）</strong>まで一括対応。
+                </p>
+                
+                {/* 機能チップ */}
+                <div className="flex flex-wrap gap-2 justify-center lg:justify-start mb-6">
+                  <span className="bg-red-100 text-red-800 text-sm font-semibold px-3 py-1 rounded-full">NEW 最適CTA</span>
+                  <span className="bg-pink-100 text-pink-800 text-sm font-semibold px-3 py-1 rounded-full">Instagram投稿文 自動生成</span>
+                  <span className="bg-orange-100 text-orange-800 text-sm font-semibold px-3 py-1 rounded-full">投稿前チェック</span>
+                  <span className="bg-blue-100 text-blue-800 text-sm font-semibold px-3 py-1 rounded-full">全プラン 薬機法</span>
+                </div>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-6">
+                  <button className="bg-orange-500 hover:bg-orange-600 text-white text-xl font-bold py-4 px-8 rounded-full shadow-lg transition-all duration-300 hover:scale-105 cta-button" data-action="try-free">
+                    無料で診断する（カード不要）
+                  </button>
+                  <div className="flex gap-2">
+                    <button className="bg-white hover:bg-gray-50 text-gray-800 font-semibold py-3 px-6 rounded-full border-2 border-gray-300 transition-all cta-button" data-action="view-pricing">
+                      料金を見る
+                    </button>
+                    <button className="bg-white hover:bg-gray-50 text-gray-800 font-semibold py-3 px-6 rounded-full border-2 border-gray-300 transition-all cta-button" data-action="view-specs">
+                      仕様を見る
+                    </button>
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-800 mb-4">診断対象バナー</h3>
+                </div>
+                <p className="text-sm text-gray-500">
+                  対応形式：PNG/JPG、最大10MB、推奨1200×630px<br />
+                  対応媒体：Instagram / Facebook / GDN / YDA
+                </p>
+              </div>
+
+              {/* 右側：30秒デモ */}
+              <div className="bg-white rounded-xl shadow-2xl p-6">
+                <div className="mb-4">
+                  <h3 className="text-xl font-bold text-gray-800 mb-2 flex items-center">
+                    <span className="bg-red-500 text-white px-2 py-1 rounded text-sm mr-2">DEMO</span>
+                    30秒で完了する流れ
+                  </h3>
                 </div>
                 
-                <div className="bg-gray-50 rounded-xl p-6">
-                  <div className="bg-white rounded-lg p-4 shadow-lg max-w-sm mx-auto">
-                    <svg width="280" height="200" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto">
-                      <defs>
-                        <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-                          <stop offset="0%" style={{stopColor:"#FFB6C1", stopOpacity:1}} />
-                          <stop offset="100%" style={{stopColor:"#FFC0CB", stopOpacity:1}} />
-                        </linearGradient>
-                      </defs>
-                      
-                      <rect width="280" height="200" fill="url(#bg)"/>
-                      
-                      <rect x="10" y="10" width="120" height="150" rx="8" fill="#FFE4E1" stroke="#FF69B4" strokeWidth="1"/>
-                      <text x="70" y="90" textAnchor="middle" fill="#FF1493" fontSize="12" fontWeight="bold">美しい女性</text>
-                      
-                      <text x="140" y="30" fill="#C71585" fontSize="14" fontWeight="bold">やりたいことを全部</text>
-                      <text x="140" y="45" fill="#C71585" fontSize="14" fontWeight="bold">叶える夏にする</text>
-                      
-                      <text x="140" y="65" fill="#8B008B" fontSize="10">DMC美容クリニックの</text>
-                      
-                      <text x="140" y="85" fill="#DC143C" fontSize="16" fontWeight="bold">医療脱毛</text>
-                      
-                      <rect x="140" y="100" width="130" height="30" rx="4" fill="#FFD700" stroke="#FF8C00" strokeWidth="1"/>
-                      <text x="170" y="115" fill="#FF4500" fontSize="9" fontWeight="bold">全身脱毛5回</text>
-                      <text x="200" y="125" fill="#FF4500" fontSize="14" fontWeight="bold">198,000円</text>
-                      
-                      <rect x="140" y="135" width="130" height="20" rx="10" fill="#FF69B4"/>
-                      <text x="205" y="148" textAnchor="middle" fill="white" fontSize="10" fontWeight="bold">無料相談はこちら</text>
-                      
-                      <circle cx="35" cy="40" r="6" fill="#FFB6C1" opacity="0.7"/>
-                      <circle cx="250" cy="170" r="8" fill="#FFC0CB" opacity="0.7"/>
-                    </svg>
-                  </div>
-                  <p className="text-center text-gray-500 mt-4 font-medium">診断前のバナー</p>
-                </div>
-
-                <div className="text-center">
-                  <button className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-all duration-300 hover:scale-105 cta-button" data-action="demo">
-                    <span className="flex items-center justify-center space-x-2">
-                      <span>🤖</span>
-                      <span>実際に試してみる</span>
-                    </span>
-                  </button>
-                </div>
-              </div>
-
-              {/* 右側：診断結果 */}
-              <div className="space-y-6">
-                <div className="text-center">
-                  <div className="inline-flex items-center justify-center w-12 h-12 bg-green-500 text-white rounded-full text-xl font-bold mb-4">
-                    2
-                  </div>
-                  <h3 className="text-2xl font-bold text-gray-800 mb-4">AI診断結果</h3>
-                </div>
-
-                <div className="bg-gradient-to-br from-gray-800 to-gray-900 text-white rounded-xl p-6 shadow-2xl">
-                  <div className="flex items-center space-x-3 mb-6">
-                    <span className="text-orange-400 text-2xl">🎯</span>
-                    <h4 className="text-xl font-bold">Aパターン診断結果</h4>
+                <div className="bg-gray-900 rounded-lg aspect-video mb-4 flex items-center justify-center relative overflow-hidden">
+                  <div className="text-center text-white">
+                    <div className="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd" />
+                      </svg>
+                    </div>
+                    <p className="text-sm">30秒デモを再生</p>
                   </div>
                   
-                  {/* スコア表示 */}
-                  <div className="mb-6">
-                    <h5 className="text-sm text-gray-300 mb-3">総合スコア</h5>
-                    <div className="flex items-center space-x-4">
-                      <span className="text-4xl font-bold text-orange-400">B</span>
-                      <div className="flex-1">
-                        <div className="bg-gray-700 rounded-full h-3">
-                          <div className="bg-gradient-to-r from-orange-500 to-yellow-500 h-3 rounded-full" style={{width: "75%"}}></div>
-                        </div>
-                        <p className="text-sm text-gray-300 mt-1">75/100点</p>
+                  {/* デモステップ表示 */}
+                  <div className="absolute bottom-4 left-4 right-4">
+                    <div className="bg-black bg-opacity-70 rounded p-2">
+                      <div className="flex items-center justify-between text-xs text-white">
+                        <span>1. 画像ドロップ</span>
+                        <span>→</span>
+                        <span>2. スコア表示</span>
+                        <span>→</span>
+                        <span>3. CTA提案</span>
+                        <span>→</span>
+                        <span>4. 投稿文生成</span>
                       </div>
                     </div>
                   </div>
+                </div>
 
-                  {/* 改善コメント */}
-                  <div className="mb-6">
-                    <h5 className="text-sm text-gray-300 mb-3">改善コメント</h5>
-                    <div className="bg-gray-700 rounded-lg p-4">
-                      <p className="text-sm leading-relaxed text-gray-200">
-                        情報が多すぎるため、一瞬で内容が伝わりにくいです。見出しや行動喚起のコピーが目立つようにレイアウトを調整すると良いでしょう。特に「医療脱毛」に関する情報をもっと強調して、30代のターゲットに響くメッセージを追加すると効果的です。
-                      </p>
-                    </div>
+                <div className="grid grid-cols-2 gap-3 text-sm">
+                  <div className="bg-green-50 p-3 rounded-lg">
+                    <div className="font-semibold text-green-800 mb-1">✓ スコア：B (78点)</div>
+                    <div className="text-green-600">最適CTA: +12%効果</div>
                   </div>
-
-                  {/* 薬機法チェック */}
-                  <div className="bg-green-900 border border-green-600 rounded-lg p-4">
-                    <div className="flex items-center space-x-2 mb-2">
-                      <span className="text-green-400 text-lg">✓</span>
-                      <h5 className="text-sm font-semibold text-green-400">薬機法チェック：評価 OK</h5>
-                    </div>
-                    <p className="text-xs text-green-200 leading-relaxed">
-                      このバナーは医療脱毛サービスの広告として適切な表現を使用しています。薬機法・医療法の観点から問題となる表現は確認されません。
-                    </p>
+                  <div className="bg-blue-50 p-3 rounded-lg">
+                    <div className="font-semibold text-blue-800 mb-1">📱 投稿文3案</div>
+                    <div className="text-blue-600">#ハッシュタグ自動</div>
+                  </div>
+                  <div className="bg-purple-50 p-3 rounded-lg">
+                    <div className="font-semibold text-purple-800 mb-1">🔍 誤字0件</div>
+                    <div className="text-purple-600">薬機法チェックOK</div>
+                  </div>
+                  <div className="bg-orange-50 p-3 rounded-lg">
+                    <div className="font-semibold text-orange-800 mb-1">📊 PDFレポ</div>
+                    <div className="text-orange-600">1クリック共有</div>
                   </div>
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
 
-            <div className="text-center mt-12">
-              <p className="text-gray-600 mb-6 text-lg">
-                このように、AIが瞬時にバナーを分析し、具体的な改善提案を行います
-              </p>
-              <div className="bg-gradient-to-r from-blue-50 to-orange-50 rounded-xl p-6 inline-block">
-                <p className="text-xl font-bold text-gray-800">
-                  📊 スコア評価 + 💡 改善提案 + ⚖️ 法規制チェック = 🚀 成果向上
+      {/* 社会的証明セクション */}
+      <section id="social-proof" className="py-12 bg-white border-b border-gray-200">
+        <div className="container mx-auto px-4">
+          <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+            <div className="text-center">
+              <div className="text-3xl font-bold text-orange-500 mb-2">10,000+</div>
+              <p className="text-gray-600">累計診断バナー数（2024年12月時点）</p>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl font-bold text-blue-500 mb-2">平均+23%</div>
+              <p className="text-gray-600">改善提案適用後のCTR向上率</p>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl font-bold text-green-500 mb-2">94%</div>
+              <p className="text-gray-600">薬機法チェック精度（対象カテゴリ）</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 機能グリッドセクション */}
+      <section id="features-grid" className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-12">
+              バナスコの主要機能
+            </h2>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {/* 最適CTA予測 */}
+              <div className="bg-white rounded-xl shadow-lg p-6 relative">
+                <span className="absolute -top-3 -right-3 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full">NEW</span>
+                <div className="text-3xl mb-4">🎯</div>
+                <h3 className="text-xl font-bold text-gray-800 mb-3">最適CTA予測</h3>
+                <p className="text-gray-600 mb-4">
+                  想定クリックを高めるCTA文を自動提案。例：「今週限定で◯◯」は推定＋9〜14%。
+                </p>
+              </div>
+
+              {/* Instagram投稿文自動生成 */}
+              <div className="bg-white rounded-xl shadow-lg p-6 relative">
+                <span className="absolute -top-3 -right-3 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full">NEW</span>
+                <div className="text-3xl mb-4">📱</div>
+                <h3 className="text-xl font-bold text-gray-800 mb-3">Instagram投稿文 自動生成</h3>
+                <p className="text-gray-600 mb-4">
+                  キャプション3案＋ハッシュタグ自動提案。コピー1クリックで投稿準備が完了。
+                </p>
+              </div>
+
+              {/* 投稿前チェック */}
+              <div className="bg-white rounded-xl shadow-lg p-6 relative">
+                <div className="flex gap-1 absolute -top-3 -right-3">
+                  <span className="bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full">NEW</span>
+                  <span className="bg-blue-500 text-white text-xs font-bold px-2 py-1 rounded-full">Lite〜</span>
+                </div>
+                <div className="text-3xl mb-4">🔍</div>
+                <h3 className="text-xl font-bold text-gray-800 mb-3">投稿前チェック</h3>
+                <p className="text-gray-600 mb-4">
+                  テキスト比・可読性・余白・比率を自動点検。誤字・表記ゆれと併せて提示（Lite〜）。
+                </p>
+              </div>
+
+              {/* バナー診断 */}
+              <div className="bg-white rounded-xl shadow-lg p-6">
+                <div className="text-3xl mb-4">📊</div>
+                <h3 className="text-xl font-bold text-gray-800 mb-3">バナー診断（スコア／改善提案）</h3>
+                <p className="text-gray-600 mb-4">
+                  配色・文字量・余白・視線導線から総合スコア化。優先ToDoを自動抽出。
+                </p>
+              </div>
+
+              {/* 薬機法チェック */}
+              <div className="bg-white rounded-xl shadow-lg p-6">
+                <div className="text-3xl mb-4">⚖️</div>
+                <h3 className="text-xl font-bold text-gray-800 mb-3">薬機法チェック（全プラン）</h3>
+                <p className="text-gray-600 mb-4">
+                  美容・健康・医療カテゴリ選択時に自動ON。リスク表現を指摘（最終判断は利用者）。
+                </p>
+              </div>
+
+              {/* レポート自動生成 */}
+              <div className="bg-white rounded-xl shadow-lg p-6 relative">
+                <span className="absolute -top-3 -right-3 bg-blue-500 text-white text-xs font-bold px-2 py-1 rounded-full">Lite〜</span>
+                <div className="text-3xl mb-4">📄</div>
+                <h3 className="text-xl font-bold text-gray-800 mb-3">レポート自動生成</h3>
+                <p className="text-gray-600 mb-4">
+                  スコア／改善Top3／CTA候補／誤字一覧をPDF/共有リンクで出力。
                 </p>
               </div>
             </div>
           </div>
         </div>
       </section>
+
+      {/* Instagram投稿支援セクション */}
+      <section id="instagram-support" className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                Instagram投稿が"めっちゃ楽"になる理由。
+              </h2>
+              <p className="text-xl text-gray-600">
+                バナー診断から投稿まで、すべてが一括で完了
+              </p>
+            </div>
+
+            <div className="grid lg:grid-cols-2 gap-12 items-center mb-12">
+              {/* 左側：機能説明 */}
+              <div className="space-y-6">
+                <div className="flex items-start space-x-4">
+                  <div className="flex-shrink-0 w-8 h-8 bg-pink-500 text-white rounded-full flex items-center justify-center font-bold">1</div>
+                  <div>
+                    <h3 className="text-xl font-bold text-gray-800 mb-2">投稿文・ハッシュタグを自動生成</h3>
+                    <p className="text-gray-600">キャプション3案とハッシュタグを一括生成。</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start space-x-4">
+                  <div className="flex-shrink-0 w-8 h-8 bg-orange-500 text-white rounded-full flex items-center justify-center font-bold">2</div>
+                  <div>
+                    <h3 className="text-xl font-bold text-gray-800 mb-2">最適CTAを同時提案</h3>
+                    <p className="text-gray-600">推定インパクト記載で効果的なCTAを提案。</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start space-x-4">
+                  <div className="flex-shrink-0 w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center font-bold">3</div>
+                  <div>
+                    <h3 className="text-xl font-bold text-gray-800 mb-2">投稿前チェックで事故を予防</h3>
+                    <p className="text-gray-600">誤字・比率・文字量を一括点検（Lite〜）。</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start space-x-4">
+                  <div className="flex-shrink-0 w-8 h-8 bg-red-500 text-white rounded-full flex items-center justify-center font-bold">4</div>
+                  <div>
+                    <h3 className="text-xl font-bold text-gray-800 mb-2">薬機法チェックは全プラン標準</h3>
+                    <p className="text-gray-600">美容・健康・医療カテゴリで自動適用。</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start space-x-4">
+                  <div className="flex-shrink-0 w-8 h-8 bg-green-500 text-white rounded-full flex items-center justify-center font-bold">4</div>
+                  <div>
+                    <h3 className="text-xl font-bold text-gray-800 mb-2">薬機法チェック（全プラン）</h3>
+                    <p className="text-gray-600">美容・健康・医療カテゴリで自動ON。</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start space-x-4">
+                  <div className="flex-shrink-0 w-8 h-8 bg-purple-500 text-white rounded-full flex items-center justify-center font-bold">5</div>
+                  <div>
+                    <h3 className="text-xl font-bold text-gray-800 mb-2">PDFレポ（Lite〜）</h3>
+                    <p className="text-gray-600">上長共有・記録を1クリック。</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* 右側：Instagram投稿支援UI */}
+              <div className="bg-gray-50 rounded-xl p-6">
+                <div className="bg-white rounded-lg shadow-lg p-6">
+                  <div className="flex items-center justify-between mb-4">
+                    <h3 className="text-lg font-bold text-gray-800">Instagram投稿文生成</h3>
+                    <button className="bg-pink-500 hover:bg-pink-600 text-white text-sm font-semibold px-4 py-2 rounded-full transition-all cta-button" data-action="generate-caption">
+                      投稿文を作成
+                    </button>
+                  </div>
+
+                  {/* 生成された投稿文例 */}
+                  <div id="instagram-content" className="hidden space-y-4">
+                    <div>
+                      <h4 className="text-sm font-semibold text-gray-700 mb-2">キャプション候補</h4>
+                      <div className="space-y-2">
+                        <div className="bg-gray-50 p-3 rounded-lg border-l-4 border-pink-500">
+                          <p className="text-sm text-gray-800 mb-2">
+                            ✨ この夏、理想の自分になりませんか？<br />
+                            DMC美容クリニックの医療脱毛で、つるすべ肌を手に入れよう。全身脱毛5回コースが今だけ特別価格！<br />
+                            💫 無料カウンセリングで、あなたに最適なプランをご提案します。
+                          </p>
+                          <button className="bg-pink-100 hover:bg-pink-200 text-pink-700 text-xs px-2 py-1 rounded transition-all copy-button" data-content="caption-1">
+                            📋 コピー
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div>
+                      <h4 className="text-sm font-semibold text-gray-700 mb-2">ハッシュタグ</h4>
+                      <div className="bg-gray-50 p-3 rounded-lg">
+                        <p className="text-sm text-blue-600 mb-2">
+                          #医療脱毛 #美容クリニック #全身脱毛 #つるすべ肌 #夏準備 #DMC美容 #脱毛サロン #美容 #自分磨き #キレイになりたい
+                        </p>
+                        <button className="bg-blue-100 hover:bg-blue-200 text-blue-700 text-xs px-2 py-1 rounded transition-all copy-button" data-content="hashtags">
+                          📋 ハッシュタグコピー
+                        </button>
+                      </div>
+                    </div>
+
+                    <div className="flex gap-2">
+                      <button className="flex-1 bg-orange-500 hover:bg-orange-600 text-white text-sm font-semibold py-2 px-4 rounded-lg transition-all copy-button" data-content="all">
+                        📋 一括コピー
+                      </button>
+                      <button className="flex-1 bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 text-white text-sm font-semibold py-2 px-4 rounded-lg transition-all" onclick="window.open('https://www.instagram.com', '_blank')">
+                        📱 Instagramを開く
+                      </button>
+                    </div>
+
+                    <div className="bg-yellow-50 border-l-4 border-yellow-400 p-3 rounded">
+                      <p className="text-xs text-yellow-800">
+                        💡 薬機法注意：医療脱毛の効果表現は適切ですが、「完全に毛がなくなる」などの過度な表現は避けてください。
+                      </p>
+                    </div>
+                  </div>
+
+                  <div id="instagram-placeholder" className="text-center py-8">
+                    <div className="text-4xl mb-4">📱</div>
+                    <p className="text-gray-500 mb-4">
+                      まずはバナーを診断して、<br />投稿文生成を体験してみましょう
+                    </p>
+                    <button className="bg-gray-200 hover:bg-gray-300 text-gray-700 text-sm px-4 py-2 rounded transition-all cta-button" data-action="scroll-to-demo">
+                      診断を試す
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="text-center">
+              <p className="text-gray-600 mb-4">
+                現時点では自動投稿は未対応です。コピー1クリックでInstagramへ貼り付け、すぐ投稿できます。
+              </p>
+              <button className="bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 px-6 rounded-full shadow-lg transition-all duration-300 hover:scale-105 cta-button" data-action="try-instagram">
+                Instagram投稿支援を試す
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
 
       {/* 主な機能セクション */}
       <section id="features" className="py-16 bg-gray-50">
@@ -202,30 +359,88 @@ app.get('/', (c) => {
               主な機能
             </h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {/* AI診断（Free） */}
               <div className="bg-white p-6 rounded-xl shadow-lg">
-                <div className="text-4xl text-blue-500 mb-4">📊</div>
-                <h3 className="text-xl font-bold text-gray-800 mb-2">AI診断</h3>
-                <p className="text-gray-600">デザイン・コピー・訴求力をスコア化</p>
+                <div className="flex items-center justify-between mb-4">
+                  <div className="text-4xl text-blue-500">📊</div>
+                  <span className="bg-green-100 text-green-800 text-xs font-bold px-2 py-1 rounded-full">FREE</span>
+                </div>
+                <h3 className="text-xl font-bold text-gray-800 mb-2">バナー診断</h3>
+                <p className="text-gray-600 mb-4">配色・文字量・余白・視線導線から総合スコア化。</p>
+                <button className="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition-colors cta-button" data-action="try-free">
+                  今すぐ試す
+                </button>
               </div>
-              <div className="bg-white p-6 rounded-xl shadow-lg">
-                <div className="text-4xl text-green-500 mb-4">✍️</div>
-                <h3 className="text-xl font-bold text-gray-800 mb-2">コピー生成</h3>
-                <p className="text-gray-600">キャッチコピー＋投稿文</p>
+
+              {/* 最適CTA予測（NEW） */}
+              <div className="bg-white p-6 rounded-xl shadow-lg relative">
+                <div className="flex items-center justify-between mb-4">
+                  <div className="text-4xl text-orange-500">🎯</div>
+                  <div className="flex gap-1">
+                    <span className="bg-red-100 text-red-800 text-xs font-bold px-2 py-1 rounded-full">NEW</span>
+                    <span className="bg-yellow-100 text-yellow-800 text-xs font-bold px-2 py-1 rounded-full">Lite〜</span>
+                  </div>
+                </div>
+                <h3 className="text-xl font-bold text-gray-800 mb-2">最適CTA予測</h3>
+                <p className="text-gray-600 mb-4">反応が出やすいCTAを自動提案。推定インパクトも表示。</p>
+                <button className="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded transition-colors" onclick="showUpsellModal('最適CTA予測', 'cta-prediction')">
+                  🔒 Liteで解放
+                </button>
               </div>
+
+              {/* Instagram投稿文自動生成（NEW） */}
               <div className="bg-white p-6 rounded-xl shadow-lg">
-                <div className="text-4xl text-orange-500 mb-4">🔍</div>
-                <h3 className="text-xl font-bold text-gray-800 mb-2">誤字脱字チェック</h3>
-                <p className="text-gray-600">OCRで文字を抽出し自動確認</p>
+                <div className="flex items-center justify-between mb-4">
+                  <div className="text-4xl text-pink-500">📱</div>
+                  <div className="flex gap-1">
+                    <span className="bg-red-100 text-red-800 text-xs font-bold px-2 py-1 rounded-full">NEW</span>
+                    <span className="bg-yellow-100 text-yellow-800 text-xs font-bold px-2 py-1 rounded-full">Lite〜</span>
+                  </div>
+                </div>
+                <h3 className="text-xl font-bold text-gray-800 mb-2">Instagram投稿文自動生成</h3>
+                <p className="text-gray-600 mb-4">ブランドトーンに合わせたキャプション3案＋ハッシュタグ。</p>
+                <button className="w-full bg-pink-500 hover:bg-pink-600 text-white font-bold py-2 px-4 rounded transition-colors" onclick="showUpsellModal('Instagram投稿文生成', 'instagram')">
+                  🔒 Liteで解放
+                </button>
               </div>
+
+              {/* 誤字・表記ゆれチェック（Lite〜） */}
               <div className="bg-white p-6 rounded-xl shadow-lg">
-                <div className="text-4xl text-red-500 mb-4">⚖️</div>
+                <div className="flex items-center justify-between mb-4">
+                  <div className="text-4xl text-orange-500">🔍</div>
+                  <span className="bg-yellow-100 text-yellow-800 text-xs font-bold px-2 py-1 rounded-full">Lite〜</span>
+                </div>
+                <h3 className="text-xl font-bold text-gray-800 mb-2">投稿前チェック</h3>
+                <p className="text-gray-600 mb-4">誤字・表記ゆれ、テキスト比、可読性を一括点検。</p>
+                <button className="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded transition-colors" onclick="showUpsellModal('誤字・表記ゆれチェック', 'spelling-check')">
+                  🔒 Liteで解放
+                </button>
+              </div>
+
+              {/* 自動レポート（Lite〜） */}
+              <div className="bg-white p-6 rounded-xl shadow-lg">
+                <div className="flex items-center justify-between mb-4">
+                  <div className="text-4xl text-blue-600">📋</div>
+                  <span className="bg-yellow-100 text-yellow-800 text-xs font-bold px-2 py-1 rounded-full">Lite〜</span>
+                </div>
+                <h3 className="text-xl font-bold text-gray-800 mb-2">レポート自動生成</h3>
+                <p className="text-gray-600 mb-4">スコア／改善Top3／CTA候補／誤字一覧をPDF/共有リンクで出力。</p>
+                <button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition-colors" onclick="showUpsellModal('自動レポート', 'report')">
+                  🔒 Liteで解放
+                </button>
+              </div>
+
+              {/* 薬機法チェック（全プラン） */}
+              <div className="bg-white p-6 rounded-xl shadow-lg">
+                <div className="flex items-center justify-between mb-4">
+                  <div className="text-4xl text-red-500">⚖️</div>
+                  <span className="bg-blue-100 text-blue-800 text-xs font-bold px-2 py-1 rounded-full">全プラン</span>
+                </div>
                 <h3 className="text-xl font-bold text-gray-800 mb-2">薬機法チェック</h3>
-                <p className="text-gray-600">美容・健康・医療系バナーの法規制確認</p>
-              </div>
-              <div className="bg-white p-6 rounded-xl shadow-lg">
-                <div className="text-4xl text-purple-500 mb-4">📱</div>
-                <h3 className="text-xl font-bold text-gray-800 mb-2">投稿診断機能</h3>
-                <p className="text-gray-600">Instagram専用／共感・ブランド視点で評価</p>
+                <p className="text-gray-600 mb-4">美容・健康・医療カテゴリで自動ON。リスク表現を指摘。</p>
+                <button className="w-full bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded transition-colors cta-button" data-action="try-free">
+                  今すぐ試す
+                </button>
               </div>
             </div>
           </div>
@@ -304,10 +519,102 @@ app.get('/', (c) => {
       {/* プランと料金セクション */}
       <section id="pricing" className="py-16 bg-white">
         <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-12">
+          <div className="max-w-7xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-4">
               プランと料金
             </h2>
+            <p className="text-center text-lg text-gray-600 mb-12">
+              Freeで体験、Liteで投稿前チェック・レポを解放。Proでチーム運用・高速上限。
+            </p>
+            
+            {/* 機能比較表 */}
+            <div className="overflow-x-auto mb-8">
+              <table className="w-full bg-white rounded-xl shadow-lg overflow-hidden">
+                <thead className="bg-gray-50">
+                  <tr>
+                    <th className="text-left p-4 font-semibold text-gray-800">機能</th>
+                    <th className="text-center p-4 font-semibold text-gray-600">Free</th>
+                    <th className="text-center p-4 font-semibold text-orange-600 relative">
+                      Lite
+                      <span className="absolute -top-2 left-1/2 transform -translate-x-1/2 bg-orange-500 text-white text-xs px-2 py-1 rounded-full">おすすめ</span>
+                    </th>
+                    <th className="text-center p-4 font-semibold text-blue-600">Pro</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-gray-200">
+                  <tr>
+                    <td className="p-4 font-medium text-gray-800">診断スコア/改善提案</td>
+                    <td className="text-center p-4 text-gray-600">○（回数制限あり）</td>
+                    <td className="text-center p-4 text-orange-600">○（優先実行）</td>
+                    <td className="text-center p-4 text-blue-600">○（高速/上限拡大）</td>
+                  </tr>
+                  <tr className="bg-yellow-50">
+                    <td className="p-4 font-medium text-gray-800">
+                      最適CTA予測 <span className="bg-red-500 text-white text-xs px-1 rounded">NEW</span>
+                    </td>
+                    <td className="text-center p-4 text-gray-400">–</td>
+                    <td className="text-center p-4 text-orange-600">○</td>
+                    <td className="text-center p-4 text-blue-600">○（業種ベンチマーク付き）</td>
+                  </tr>
+                  <tr className="bg-pink-50">
+                    <td className="p-4 font-medium text-gray-800">
+                      Instagram投稿文生成 <span className="bg-red-500 text-white text-xs px-1 rounded">NEW</span>
+                    </td>
+                    <td className="text-center p-4 text-gray-600">○（回数制限あり）</td>
+                    <td className="text-center p-4 text-orange-600">○（優先実行）</td>
+                    <td className="text-center p-4 text-blue-600">○（業種テンプレ拡張）</td>
+                  </tr>
+                  <tr>
+                    <td className="p-4 font-medium text-gray-800">ハッシュタグ自動提案</td>
+                    <td className="text-center p-4 text-gray-600">○（上位10件）</td>
+                    <td className="text-center p-4 text-orange-600">○（上位30件・競合度表示）</td>
+                    <td className="text-center p-4 text-blue-600">○（業種辞書＋保存機能）</td>
+                  </tr>
+                  <tr className="bg-orange-50">
+                    <td className="p-4 font-medium text-gray-800">
+                      最適CTA予測 <span className="bg-red-500 text-white text-xs px-1 rounded">NEW</span>
+                    </td>
+                    <td className="text-center p-4 text-gray-400">–</td>
+                    <td className="text-center p-4 text-orange-600">○（CTA5つ／効果予測）</td>
+                    <td className="text-center p-4 text-blue-600">○（CTA15つ／A/B推奨）</td>
+                  </tr>
+                  <tr className="bg-blue-50">
+                    <td className="p-4 font-medium text-gray-800">
+                      誤字・表記ゆれチェック <span className="bg-orange-500 text-white text-xs px-1 rounded">Lite〜</span>
+                    </td>
+                    <td className="text-center p-4 text-gray-400">–</td>
+                    <td className="text-center p-4 text-orange-600">○（誤字/比率/テキスト比）</td>
+                    <td className="text-center p-4 text-blue-600">○（ワークフロー保存・チーム）</td>
+                  </tr>
+                  <tr>
+                    <td className="p-4 font-medium text-gray-800">薬機法チェック</td>
+                    <td className="text-center p-4 text-gray-600">○（カテゴリ一致時）</td>
+                    <td className="text-center p-4 text-orange-600">○（カテゴリ一致時）</td>
+                    <td className="text-center p-4 text-blue-600">○（カテゴリ一致時）</td>
+                  </tr>
+                  <tr>
+                    <td className="p-4 font-medium text-gray-800">自動レポート</td>
+                    <td className="text-center p-4 text-gray-400">–</td>
+                    <td className="text-center p-4 text-orange-600">○（PDF/リンク共有）</td>
+                    <td className="text-center p-4 text-blue-600">○（ホワイトラベル/週次メール）</td>
+                  </tr>
+                  <tr>
+                    <td className="p-4 font-medium text-gray-800">チーム/メンバー</td>
+                    <td className="text-center p-4 text-gray-600">1</td>
+                    <td className="text-center p-4 text-orange-600">3</td>
+                    <td className="text-center p-4 text-blue-600">10</td>
+                  </tr>
+                  <tr>
+                    <td className="p-4 font-medium text-gray-800">サポート</td>
+                    <td className="text-center p-4 text-gray-600">メール</td>
+                    <td className="text-center p-4 text-orange-600">優先メール</td>
+                    <td className="text-center p-4 text-blue-600">チャット優先</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            {/* 価格カード */}
             <div className="grid md:grid-cols-3 gap-8">
               {/* Free Plan */}
               <div className="bg-gray-50 p-8 rounded-xl shadow-lg">
@@ -316,57 +623,37 @@ app.get('/', (c) => {
                   <span className="text-4xl font-bold text-gray-900">0円</span>
                   <span className="text-gray-600">/月</span>
                 </div>
-                <ul className="space-y-3 mb-8">
-                  <li className="flex items-center">
-                    <span className="text-green-500 mr-2">✓</span>
-                    月5回まで診断
-                  </li>
-                  <li className="flex items-center">
-                    <span className="text-green-500 mr-2">✓</span>
-                    薬機法チェック
-                  </li>
-                  <li className="flex items-center">
-                    <span className="text-green-500 mr-2">✓</span>
-                    投稿診断
-                  </li>
-                </ul>
+                <div className="mb-6">
+                  <p className="text-sm text-gray-600 text-center">
+                    機能制限あり・回数制限あり<br />
+                    まずはお試しで
+                  </p>
+                </div>
                 <button className="w-full bg-gray-600 hover:bg-gray-700 text-white font-bold py-3 px-6 rounded-lg transition-colors cta-button" data-action="signup-free">
                   無料で始める
                 </button>
               </div>
 
-              {/* Light Plan - おすすめ */}
-              <div className="bg-orange-50 p-8 rounded-xl shadow-lg relative border-2 border-orange-500">
+              {/* Lite Plan - おすすめ */}
+              <div className="bg-orange-50 p-8 rounded-xl shadow-lg relative border-2 border-orange-500 transform scale-105">
                 <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-orange-500 text-white px-4 py-2 rounded-full text-sm font-bold">
                   おすすめ
                 </div>
-                <h3 className="text-2xl font-bold text-gray-800 text-center mb-4">Light</h3>
+                <h3 className="text-2xl font-bold text-gray-800 text-center mb-4">Lite</h3>
                 <div className="text-center mb-6">
                   <div className="text-lg text-gray-500 line-through">1,500円</div>
                   <span className="text-4xl font-bold text-orange-600">1,000円</span>
                   <span className="text-gray-600">/月</span>
                   <div className="text-sm text-orange-600 font-semibold">キャンペーン中（6か月間）</div>
                 </div>
-                <ul className="space-y-3 mb-8">
-                  <li className="flex items-center">
-                    <span className="text-green-500 mr-2">✓</span>
-                    月50回まで診断
-                  </li>
-                  <li className="flex items-center">
-                    <span className="text-green-500 mr-2">✓</span>
-                    コピー生成あり
-                  </li>
-                  <li className="flex items-center">
-                    <span className="text-green-500 mr-2">✓</span>
-                    薬機法チェック
-                  </li>
-                  <li className="flex items-center">
-                    <span className="text-green-500 mr-2">✓</span>
-                    投稿診断
-                  </li>
-                </ul>
-                <button className="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-6 rounded-lg transition-colors cta-button" data-action="signup-light">
-                  Lightを始める
+                <div className="mb-6">
+                  <p className="text-sm text-orange-700 text-center font-medium">
+                    全機能利用可能<br />
+                    個人・小規模チーム向け
+                  </p>
+                </div>
+                <button className="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-6 rounded-lg transition-colors cta-button" data-action="signup-lite">
+                  Liteを始める
                 </button>
               </div>
 
@@ -377,24 +664,12 @@ app.get('/', (c) => {
                   <span className="text-4xl font-bold text-blue-600">5,000円</span>
                   <span className="text-gray-600">/月</span>
                 </div>
-                <ul className="space-y-3 mb-8">
-                  <li className="flex items-center">
-                    <span className="text-green-500 mr-2">✓</span>
-                    月200回まで診断
-                  </li>
-                  <li className="flex items-center">
-                    <span className="text-green-500 mr-2">✓</span>
-                    コピー生成あり
-                  </li>
-                  <li className="flex items-center">
-                    <span className="text-green-500 mr-2">✓</span>
-                    薬機法チェック
-                  </li>
-                  <li className="flex items-center">
-                    <span className="text-green-500 mr-2">✓</span>
-                    投稿診断
-                  </li>
-                </ul>
+                <div className="mb-6">
+                  <p className="text-sm text-blue-700 text-center font-medium">
+                    チーム機能・高速処理<br />
+                    本格運用・企業向け
+                  </p>
+                </div>
                 <button className="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-lg transition-colors cta-button" data-action="signup-pro">
                   Proを始める
                 </button>
@@ -483,57 +758,77 @@ app.get('/', (c) => {
             <div className="space-y-4">
               <div className="bg-white p-6 rounded-lg shadow-md">
                 <button className="faq-question w-full text-left flex justify-between items-center">
-                  <span className="text-lg font-semibold text-gray-800">Q1. デザインも作れますか？</span>
+                  <span className="text-lg font-semibold text-gray-800">Q1. Instagramに自動投稿されますか？</span>
                   <span className="text-2xl text-gray-500">+</span>
                 </button>
                 <div className="faq-answer hidden mt-4 pt-4 border-t border-gray-200">
-                  <p className="text-gray-600">いいえ、診断専用ツールです。</p>
+                  <p className="text-gray-600">現時点では自動投稿は未対応です。コピー1クリックでInstagramへ貼り付け、すぐ投稿できます。</p>
                 </div>
               </div>
               
               <div className="bg-white p-6 rounded-lg shadow-md">
                 <button className="faq-question w-full text-left flex justify-between items-center">
-                  <span className="text-lg font-semibold text-gray-800">Q2. スマホでも使えますか？</span>
+                  <span className="text-lg font-semibold text-gray-800">Q2. 予測CTAは何をしますか？</span>
                   <span className="text-2xl text-gray-500">+</span>
                 </button>
                 <div className="faq-answer hidden mt-4 pt-4 border-t border-gray-200">
-                  <p className="text-gray-600">はい、PC・スマホどちらからでも利用可能です。</p>
+                  <p className="text-gray-600">バナー内容と訴求軸から、反応が出やすいCTA文を自動提案し、推定インパクトを表示します。</p>
                 </div>
               </div>
               
               <div className="bg-white p-6 rounded-lg shadow-md">
                 <button className="faq-question w-full text-left flex justify-between items-center">
-                  <span className="text-lg font-semibold text-gray-800">Q3. 無料プランでも薬機法チェックはできますか？</span>
+                  <span className="text-lg font-semibold text-gray-800">Q3. レポートの形式は？</span>
                   <span className="text-2xl text-gray-500">+</span>
                 </button>
                 <div className="faq-answer hidden mt-4 pt-4 border-t border-gray-200">
-                  <p className="text-gray-600">はい、Freeプランでも利用可能です。</p>
+                  <p className="text-gray-600">PDFまたは共有リンクで出力できます（Lite〜）。</p>
                 </div>
               </div>
               
               <div className="bg-white p-6 rounded-lg shadow-md">
                 <button className="faq-question w-full text-left flex justify-between items-center">
-                  <span className="text-lg font-semibold text-gray-800">Q4. コピー生成はどのプランから使えますか？</span>
+                  <span className="text-lg font-semibold text-gray-800">Q4. 薬機法チェックはどのプランで使えますか？</span>
                   <span className="text-2xl text-gray-500">+</span>
                 </button>
                 <div className="faq-answer hidden mt-4 pt-4 border-t border-gray-200">
-                  <p className="text-gray-600">Light以上で利用可能です（キャンペーン中はFreeでも体験可）。</p>
+                  <p className="text-gray-600">全プランで利用可能です（対象カテゴリ選択時に自動ON）。</p>
                 </div>
               </div>
               
               <div className="bg-white p-6 rounded-lg shadow-md">
                 <button className="faq-question w-full text-left flex justify-between items-center">
-                  <span className="text-lg font-semibold text-gray-800">Q5. 診断結果は保存されますか？</span>
+                  <span className="text-lg font-semibold text-gray-800">Q5. 対応している画像形式は？</span>
                   <span className="text-2xl text-gray-500">+</span>
                 </button>
                 <div className="faq-answer hidden mt-4 pt-4 border-t border-gray-200">
-                  <p className="text-gray-600">現状は不可。将来実装予定です。</p>
+                  <p className="text-gray-600">PNG/JPG、最大10MB、推奨1200×630px。対応媒体：Instagram / Facebook / GDN / YDA</p>
                 </div>
               </div>
               
               <div className="bg-white p-6 rounded-lg shadow-md">
                 <button className="faq-question w-full text-left flex justify-between items-center">
-                  <span className="text-lg font-semibold text-gray-800">Q6. 契約期間の縛りはありますか？</span>
+                  <span className="text-lg font-semibold text-gray-800">Q6. 自動投稿はできますか？</span>
+                  <span className="text-2xl text-gray-500">+</span>
+                </button>
+                <div className="faq-answer hidden mt-4 pt-4 border-t border-gray-200">
+                  <p className="text-gray-600">現時点では未対応です。コピー1クリックでInstagramへ貼り付けて投稿できます。</p>
+                </div>
+              </div>
+              
+              <div className="bg-white p-6 rounded-lg shadow-md">
+                <button className="faq-question w-full text-left flex justify-between items-center">
+                  <span className="text-lg font-semibold text-gray-800">Q7. 薬機法チェックはどのプランで使えますか？</span>
+                  <span className="text-2xl text-gray-500">+</span>
+                </button>
+                <div className="faq-answer hidden mt-4 pt-4 border-t border-gray-200">
+                  <p className="text-gray-600">全プランで利用できます（対象カテゴリ選択時に自動ON）。</p>
+                </div>
+              </div>
+              
+              <div className="bg-white p-6 rounded-lg shadow-md">
+                <button className="faq-question w-full text-left flex justify-between items-center">
+                  <span className="text-lg font-semibold text-gray-800">Q8. 契約期間の縛りはありますか？</span>
                   <span className="text-2xl text-gray-500">+</span>
                 </button>
                 <div className="faq-answer hidden mt-4 pt-4 border-t border-gray-200">
@@ -545,28 +840,115 @@ app.get('/', (c) => {
         </div>
       </section>
 
+      {/* データ取扱い・法務セクション */}
+      <section id="legal" className="py-12 bg-gray-100">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-2xl font-bold text-center text-gray-900 mb-8">
+              データ取扱い・利用規約
+            </h2>
+            <div className="grid md:grid-cols-2 gap-8">
+              <div className="bg-white p-6 rounded-lg shadow-md">
+                <h3 className="text-lg font-bold text-gray-800 mb-4">🔒 データ保護</h3>
+                <ul className="text-sm text-gray-600 space-y-2">
+                  <li>• 画像の保存：診断完了後24時間で自動削除</li>
+                  <li>• 通信：HTTPS暗号化で安全に送信</li>
+                  <li>• サーバー：AWS/GCPでデータ暗号化保存</li>
+                  <li>• 学習用途：明示的同意取得後のみ利用</li>
+                </ul>
+              </div>
+              <div className="bg-white p-6 rounded-lg shadow-md">
+                <h3 className="text-lg font-bold text-gray-800 mb-4">⚠️ 免責事項</h3>
+                <ul className="text-sm text-gray-600 space-y-2">
+                  <li>• 推定値（CTA/CTR等）は参考値です。結果は配信条件により変動します</li>
+                  <li>• 薬機法チェックは支援機能であり、最終判断はご利用者様にてお願いします</li>
+                  <li>• 診断結果の正確性について当社は責任を負いません</li>
+                  <li>• 商用利用時は必ず法的確認を行ってください</li>
+                </ul>
+              </div>
+            </div>
+            <div className="text-center mt-8">
+              <div className="flex justify-center space-x-6 text-sm">
+                <a href="#terms" className="text-blue-600 hover:text-blue-800 underline">利用規約</a>
+                <a href="#privacy" className="text-blue-600 hover:text-blue-800 underline">プライバシーポリシー</a>
+                <a href="#commerce" className="text-blue-600 hover:text-blue-800 underline">特商法表記</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* 最終CTA セクション */}
       <section id="final-cta" className="py-16 bg-gradient-to-r from-orange-500 to-blue-500 text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              今すぐバナスコで広告の成果を向上させましょう
+              出稿前30秒で、広告の成果を向上させましょう
             </h2>
             <p className="text-xl mb-8">
-              初月10回キャンペーン中！無料で診断を始められます。
+              画像アップロード → AI診断 → 投稿文生成 → そのまま投稿
             </p>
-            <button className="bg-white text-orange-500 text-xl font-bold py-4 px-8 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 cta-button" data-action="contact">
-              今すぐ無料相談・お申し込み
+            <button className="bg-white text-orange-500 text-xl font-bold py-4 px-8 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 cta-button" data-action="try-free">
+              無料で診断する（カード不要）
             </button>
+            <p className="text-lg mt-4 opacity-90">
+              ※ 対応形式：PNG/JPG、最大10MB
+            </p>
           </div>
         </div>
       </section>
 
-      {/* 固定CTAボタン */}
+      {/* フッター */}
+      <footer className="bg-gray-900 text-white py-12">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="mb-8">
+              <h3 className="text-2xl font-bold mb-4">バナスコ</h3>
+              <p className="text-gray-400">
+                AI powered banner optimization platform
+              </p>
+            </div>
+            <div className="grid md:grid-cols-3 gap-8 mb-8">
+              <div>
+                <h4 className="font-semibold mb-4">サービス</h4>
+                <ul className="space-y-2 text-gray-400">
+                  <li>AI診断</li>
+                  <li>投稿文生成</li>
+                  <li>薬機法チェック</li>
+                  <li>レポート機能</li>
+                </ul>
+              </div>
+              <div>
+                <h4 className="font-semibold mb-4">サポート</h4>
+                <ul className="space-y-2 text-gray-400">
+                  <li>よくある質問</li>
+                  <li>お問い合わせ</li>
+                  <li>チュートリアル</li>
+                  <li>API仕様</li>
+                </ul>
+              </div>
+              <div>
+                <h4 className="font-semibold mb-4">法的事項</h4>
+                <ul className="space-y-2 text-gray-400">
+                  <li>利用規約</li>
+                  <li>プライバシーポリシー</li>
+                  <li>特商法表記</li>
+                  <li>お問い合わせ</li>
+                </ul>
+              </div>
+            </div>
+            <div className="border-t border-gray-700 pt-8 text-gray-400 text-sm">
+              <p>&copy; 2024 バナスコ. All rights reserved.</p>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+      {/* 固定CTAバー（モバイル） */}
       <div id="fixed-cta" className="fixed bottom-0 left-0 right-0 bg-orange-500 text-white p-4 shadow-lg z-50 md:hidden">
         <div className="text-center">
-          <button className="w-full bg-white text-orange-500 font-bold py-3 px-6 rounded-lg cta-button" data-action="signup">
-            無料で診断を始める
+          <button className="w-full bg-white text-orange-500 font-bold py-3 px-6 rounded-lg cta-button" data-action="try-free">
+            無料で診断する
           </button>
         </div>
       </div>

@@ -1,5 +1,5 @@
 # prod
-dist/
+# dist/ (Cloudflare Pagesでビルドが必要なため一時的にコミット)
 
 # dev
 .yarn/
