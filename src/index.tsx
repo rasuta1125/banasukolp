@@ -550,31 +550,21 @@ app.get('/', (c) => {
                 <tbody className="divide-y divide-gray-200">
                   <tr>
                     <td className="p-4 font-medium text-gray-800">診断スコア/改善提案</td>
-                    <td className="text-center p-4 text-gray-600">○（回数制限あり）</td>
-                    <td className="text-center p-4 text-orange-600">○（優先実行）</td>
-                    <td className="text-center p-4 text-blue-600">○（高速/上限拡大）</td>
-                  </tr>
-                  <tr className="bg-yellow-50">
-                    <td className="p-4 font-medium text-gray-800">
-                      最適CTA予測 <span className="bg-red-500 text-white text-xs px-1 rounded">NEW</span>
-                    </td>
-                    <td className="text-center p-4 text-gray-400">–</td>
+                    <td className="text-center p-4 text-gray-600">○</td>
                     <td className="text-center p-4 text-orange-600">○</td>
-                    <td className="text-center p-4 text-blue-600">○（業種ベンチマーク付き）</td>
+                    <td className="text-center p-4 text-blue-600">○</td>
                   </tr>
                   <tr className="bg-pink-50">
-                    <td className="p-4 font-medium text-gray-800">
-                      Instagram投稿文生成 <span className="bg-red-500 text-white text-xs px-1 rounded">NEW</span>
-                    </td>
-                    <td className="text-center p-4 text-gray-600">○（回数制限あり）</td>
-                    <td className="text-center p-4 text-orange-600">○（優先実行）</td>
-                    <td className="text-center p-4 text-blue-600">○（業種テンプレ拡張）</td>
+                    <td className="p-4 font-medium text-gray-800">Instagram投稿文生成</td>
+                    <td className="text-center p-4 text-gray-400">–</td>
+                    <td className="text-center p-4 text-orange-600">○（生成制限あり）</td>
+                    <td className="text-center p-4 text-blue-600">○（生成制限拡張）</td>
                   </tr>
                   <tr>
                     <td className="p-4 font-medium text-gray-800">ハッシュタグ自動提案</td>
-                    <td className="text-center p-4 text-gray-600">○（上位10件）</td>
-                    <td className="text-center p-4 text-orange-600">○（上位30件・競合度表示）</td>
-                    <td className="text-center p-4 text-blue-600">○（業種辞書＋保存機能）</td>
+                    <td className="text-center p-4 text-gray-400">–</td>
+                    <td className="text-center p-4 text-orange-600">○</td>
+                    <td className="text-center p-4 text-blue-600">○</td>
                   </tr>
                   <tr className="bg-orange-50">
                     <td className="p-4 font-medium text-gray-800">
@@ -586,15 +576,18 @@ app.get('/', (c) => {
                   </tr>
                   <tr className="bg-blue-50">
                     <td className="p-4 font-medium text-gray-800">
-                      誤字・表記ゆれチェック <span className="bg-orange-500 text-white text-xs px-1 rounded">Lite〜</span>
+                      誤字脱字チェック <span className="bg-orange-500 text-white text-xs px-1 rounded">Lite〜</span>
                     </td>
                     <td className="text-center p-4 text-gray-400">–</td>
-                    <td className="text-center p-4 text-orange-600">○（誤字/比率/テキスト比）</td>
-                    <td className="text-center p-4 text-blue-600">○（ワークフロー保存・チーム）</td>
+                    <td className="text-center p-4 text-orange-600">○</td>
+                    <td className="text-center p-4 text-blue-600">○</td>
                   </tr>
                   <tr>
                     <td className="p-4 font-medium text-gray-800">月間利用回数</td>
-                    <td className="text-center p-4 text-gray-600">10回</td>
+                    <td className="text-center p-4 text-gray-600">
+                      5回<br />
+                      <span className="text-xs text-orange-600 font-semibold">12月まで10回</span>
+                    </td>
                     <td className="text-center p-4 text-orange-600">50回</td>
                     <td className="text-center p-4 text-blue-600">200回</td>
                   </tr>
@@ -607,20 +600,14 @@ app.get('/', (c) => {
                   <tr>
                     <td className="p-4 font-medium text-gray-800">自動レポート</td>
                     <td className="text-center p-4 text-gray-400">–</td>
-                    <td className="text-center p-4 text-orange-600">○（PDF/リンク共有）</td>
-                    <td className="text-center p-4 text-blue-600">○（ホワイトラベル/週次メール）</td>
-                  </tr>
-                  <tr>
-                    <td className="p-4 font-medium text-gray-800">チーム/メンバー</td>
-                    <td className="text-center p-4 text-gray-600">1</td>
-                    <td className="text-center p-4 text-orange-600">3</td>
-                    <td className="text-center p-4 text-blue-600">10</td>
+                    <td className="text-center p-4 text-gray-400">–</td>
+                    <td className="text-center p-4 text-gray-400">–</td>
                   </tr>
                   <tr>
                     <td className="p-4 font-medium text-gray-800">サポート</td>
                     <td className="text-center p-4 text-gray-600">メール</td>
-                    <td className="text-center p-4 text-orange-600">優先メール</td>
-                    <td className="text-center p-4 text-blue-600">チャット優先</td>
+                    <td className="text-center p-4 text-orange-600">メール</td>
+                    <td className="text-center p-4 text-blue-600">メール優先対応</td>
                   </tr>
                 </tbody>
               </table>
