@@ -51,57 +51,63 @@ app.get('/', (c) => {
                 </p>
               </div>
 
-              {/* 右側：30秒デモ */}
+              {/* 右側：実際の診断結果 */}
               <div className="bg-white rounded-xl shadow-2xl p-6">
                 <div className="mb-4">
                   <h3 className="text-xl font-bold text-gray-800 mb-2 flex items-center">
-                    <span className="bg-red-500 text-white px-2 py-1 rounded text-sm mr-2">DEMO</span>
-                    30秒で完了する流れ
+                    <span className="bg-green-500 text-white px-2 py-1 rounded text-sm mr-2">LIVE</span>
+                    実際の診断結果
                   </h3>
                 </div>
                 
-                <div className="bg-gray-900 rounded-lg aspect-video mb-4 flex items-center justify-center relative overflow-hidden">
-                  <div className="text-center text-white">
-                    <div className="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd" />
-                      </svg>
+                {/* アップロードされたバナーイメージ */}
+                <div className="bg-gradient-to-br from-purple-100 to-pink-100 rounded-lg p-4 mb-4">
+                  <div className="bg-white rounded-lg p-6 text-center shadow-sm">
+                    <div className="text-2xl font-bold text-purple-800 mb-2">夏限定！全身脱毛</div>
+                    <div className="text-lg text-purple-600 mb-2">5回コース 特別価格</div>
+                    <div className="text-3xl font-bold text-red-500 mb-2">¥89,800</div>
+                    <div className="text-sm text-gray-500 line-through mb-2">通常価格 ¥150,000</div>
+                    <div className="bg-orange-500 text-white font-bold py-2 px-4 rounded-full text-sm">
+                      今すぐ予約する
                     </div>
-                    <p className="text-sm">30秒デモを再生</p>
+                    <div className="text-xs text-gray-400 mt-2">※DMC美容クリニック</div>
                   </div>
-                  
-                  {/* デモステップ表示 */}
-                  <div className="absolute bottom-4 left-4 right-4">
-                    <div className="bg-black bg-opacity-70 rounded p-2">
-                      <div className="flex items-center justify-between text-xs text-white">
-                        <span>1. 画像ドロップ</span>
-                        <span>→</span>
-                        <span>2. スコア表示</span>
-                        <span>→</span>
-                        <span>3. CTA提案</span>
-                        <span>→</span>
-                        <span>4. 投稿文生成</span>
-                      </div>
+                </div>
+
+                {/* AI診断スコア */}
+                <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg p-4 mb-4">
+                  <div className="flex items-center justify-between mb-3">
+                    <h4 className="font-bold text-gray-800">📊 AI診断結果</h4>
+                    <span className="bg-orange-500 text-white px-3 py-1 rounded-full font-bold">B+ 82点</span>
+                  </div>
+                  <div className="space-y-2 text-sm">
+                    <div className="flex justify-between">
+                      <span>デザイン・可読性</span>
+                      <span className="font-semibold text-green-600">85点</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span>訴求力・インパクト</span>
+                      <span className="font-semibold text-orange-600">78点</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span>CTA効果予測</span>
+                      <span className="font-semibold text-blue-600">83点</span>
                     </div>
                   </div>
                 </div>
 
-                <div className="grid grid-cols-2 gap-3 text-sm">
-                  <div className="bg-green-50 p-3 rounded-lg">
-                    <div className="font-semibold text-green-800 mb-1">✓ スコア：B (78点)</div>
-                    <div className="text-green-600">最適CTA: +12%効果</div>
-                  </div>
-                  <div className="bg-blue-50 p-3 rounded-lg">
-                    <div className="font-semibold text-blue-800 mb-1">📱 投稿文3案</div>
-                    <div className="text-blue-600">#ハッシュタグ自動</div>
-                  </div>
-                  <div className="bg-purple-50 p-3 rounded-lg">
-                    <div className="font-semibold text-purple-800 mb-1">🔍 誤字0件</div>
-                    <div className="text-purple-600">薬機法チェックOK</div>
-                  </div>
-                  <div className="bg-orange-50 p-3 rounded-lg">
-                    <div className="font-semibold text-orange-800 mb-1">📊 PDFレポ</div>
-                    <div className="text-orange-600">1クリック共有</div>
+                {/* 生成されたコピー */}
+                <div className="bg-gradient-to-r from-green-50 to-blue-50 rounded-lg p-4">
+                  <h4 className="font-bold text-gray-800 mb-3">✍️ 生成コピー案</h4>
+                  <div className="space-y-3">
+                    <div className="bg-white rounded p-3 border-l-4 border-green-500">
+                      <div className="font-semibold text-green-700 text-sm mb-1">推奨CTA（+15%効果予測）</div>
+                      <div className="text-gray-800">"限定価格で予約する"</div>
+                    </div>
+                    <div className="bg-white rounded p-3 border-l-4 border-purple-500">
+                      <div className="font-semibold text-purple-700 text-sm mb-1">Instagram投稿文</div>
+                      <div className="text-gray-800 text-sm">「✨この夏、理想の自分に✨ DMC美容クリニックの医療脱毛で、つるすべ肌を手に入れよう🌟」</div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -587,6 +593,12 @@ app.get('/', (c) => {
                     <td className="text-center p-4 text-blue-600">○（ワークフロー保存・チーム）</td>
                   </tr>
                   <tr>
+                    <td className="p-4 font-medium text-gray-800">月間利用回数</td>
+                    <td className="text-center p-4 text-gray-600">10回</td>
+                    <td className="text-center p-4 text-orange-600">50回</td>
+                    <td className="text-center p-4 text-blue-600">200回</td>
+                  </tr>
+                  <tr>
                     <td className="p-4 font-medium text-gray-800">薬機法チェック</td>
                     <td className="text-center p-4 text-gray-600">○（カテゴリ一致時）</td>
                     <td className="text-center p-4 text-orange-600">○（カテゴリ一致時）</td>
@@ -644,13 +656,18 @@ app.get('/', (c) => {
                   <div className="text-lg text-gray-500 line-through">1,500円</div>
                   <span className="text-4xl font-bold text-orange-600">1,000円</span>
                   <span className="text-gray-600">/月</span>
-                  <div className="text-sm text-orange-600 font-semibold">キャンペーン中（6か月間）</div>
+                  <div className="text-sm text-orange-600 font-semibold">【3ヶ月間の期間限定価格！】</div>
                 </div>
                 <div className="mb-6">
                   <p className="text-sm text-orange-700 text-center font-medium">
-                    全機能利用可能<br />
-                    個人・小規模チーム向け
+                    広告主や小規模店舗での日常的な運用に最適なプランです。<br />
+                    <strong>月間利用回数：50回</strong>
                   </p>
+                  <ul className="text-xs text-orange-700 mt-3 space-y-1">
+                    <li>• ABテスト診断</li>
+                    <li>• CTR予測 & 改善提案</li>
+                    <li>• コピー生成機能</li>
+                  </ul>
                 </div>
                 <button className="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-6 rounded-lg transition-colors cta-button" data-action="signup-lite">
                   Liteを始める
@@ -661,14 +678,19 @@ app.get('/', (c) => {
               <div className="bg-blue-50 p-8 rounded-xl shadow-lg">
                 <h3 className="text-2xl font-bold text-gray-800 text-center mb-4">Pro</h3>
                 <div className="text-center mb-6">
-                  <span className="text-4xl font-bold text-blue-600">5,000円</span>
+                  <span className="text-4xl font-bold text-blue-600">2,980円</span>
                   <span className="text-gray-600">/月</span>
                 </div>
                 <div className="mb-6">
                   <p className="text-sm text-blue-700 text-center font-medium">
-                    チーム機能・高速処理<br />
-                    本格運用・企業向け
+                    広告代理店や制作会社など、本格的に利用したい方向けのプランです。<br />
+                    <strong>月間利用回数：200回</strong>
                   </p>
+                  <ul className="text-xs text-blue-700 mt-3 space-y-1">
+                    <li>• Lightプランの全機能</li>
+                    <li>• Instagram投稿文生成</li>
+                    <li>• 実績記録の保存・編集</li>
+                  </ul>
                 </div>
                 <button className="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-lg transition-colors cta-button" data-action="signup-pro">
                   Proを始める
