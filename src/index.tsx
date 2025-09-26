@@ -1,9 +1,13 @@
 import { Hono } from 'hono'
 import { renderer } from './renderer'
+import tokuteiApp from './tokutei'
 
 const app = new Hono()
 
 app.use(renderer)
+
+// 特定商取引法ページのルートを追加
+app.route('/', tokuteiApp)
 
 app.get('/', (c) => {
   return c.render(
@@ -941,7 +945,7 @@ app.get('/', (c) => {
                 <ul className="space-y-2 text-gray-400">
                   <li>利用規約</li>
                   <li>プライバシーポリシー</li>
-                  <li>特商法表記</li>
+                  <li><a href="/tokutei" className="hover:text-white transition-colors">特定商取引法に基づく表記</a></li>
                   <li>お問い合わせ</li>
                 </ul>
               </div>
