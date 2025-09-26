@@ -28,7 +28,7 @@ app.get('/', (c) => {
                   画像をアップするだけ。AIがスコア化／最適CTA提案／投稿文・ハッシュタグ生成を自動実行。<br />
                   投稿前チェックと<strong>薬機法チェック（全プラン）</strong>まで一括対応。
                 </p>
-                
+
                 {/* 機能チップ */}
                 <div className="flex flex-wrap gap-2 justify-center lg:justify-start mb-6">
                   <span className="bg-red-100 text-red-800 text-sm font-semibold px-3 py-1 rounded-full">NEW 最適CTA</span>
@@ -36,18 +36,13 @@ app.get('/', (c) => {
                   <span className="bg-orange-100 text-orange-800 text-sm font-semibold px-3 py-1 rounded-full">投稿前チェック</span>
                   <span className="bg-blue-100 text-blue-800 text-sm font-semibold px-3 py-1 rounded-full">全プラン 薬機法</span>
                 </div>
+
+                {/* --- 修正箇所：画像アップロードと診断ボタン --- */}
                 <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-6">
-                  <button className="bg-orange-500 hover:bg-orange-600 text-white text-xl font-bold py-4 px-8 rounded-full shadow-lg transition-all duration-300 hover:scale-105 cta-button" data-action="try-free">
-                    無料で診断する（カード不要）
+                  <input type="file" id="banner-upload" accept="image/png, image/jpeg" style={{ display: 'none' }} />
+                  <button id="analyze-button" className="bg-orange-500 hover:bg-orange-600 text-white text-xl font-bold py-4 px-8 rounded-full shadow-lg transition-all duration-300 hover:scale-105">
+                    無料で診断する（画像を選択）
                   </button>
-                  <div className="flex gap-2">
-                    <button className="bg-white hover:bg-gray-50 text-gray-800 font-semibold py-3 px-6 rounded-full border-2 border-gray-300 transition-all cta-button" data-action="view-pricing">
-                      料金を見る
-                    </button>
-                    <button className="bg-white hover:bg-gray-50 text-gray-800 font-semibold py-3 px-6 rounded-full border-2 border-gray-300 transition-all cta-button" data-action="view-specs">
-                      仕様を見る
-                    </button>
-                  </div>
                 </div>
                 <p className="text-sm text-gray-500">
                   対応形式：PNG/JPG、最大10MB、推奨1200×630px<br />
@@ -63,57 +58,49 @@ app.get('/', (c) => {
                     実際の診断結果
                   </h3>
                 </div>
-                
-                {/* アップロードされたバナーイメージ */}
-                <div className="bg-gradient-to-br from-purple-100 to-pink-100 rounded-lg p-4 mb-4">
-                  <div className="bg-white rounded-lg p-6 text-center shadow-sm">
-                    <div className="text-2xl font-bold text-purple-800 mb-2">夏限定！全身脱毛</div>
-                    <div className="text-lg text-purple-600 mb-2">5回コース 特別価格</div>
-                    <div className="text-3xl font-bold text-red-500 mb-2">¥89,800</div>
-                    <div className="text-sm text-gray-500 line-through mb-2">通常価格 ¥150,000</div>
-                    <div className="bg-orange-500 text-white font-bold py-2 px-4 rounded-full text-sm">
-                      今すぐ予約する
+
+                {/* --- 修正箇所：診断結果表示エリア --- */}
+                <div id="analysis-result-area" className="space-y-4">
+                    {/* 初期表示 */}
+                    <div id="initial-view" className="text-center py-8 text-gray-500">
+                        <div className="text-4xl mb-4">🖼️</div>
+                        <p>左のボタンから<br/>診断したい画像を選択してください。</p>
                     </div>
-                    <div className="text-xs text-gray-400 mt-2">※DMC美容クリニック</div>
-                  </div>
+                    {/* ローディング表示 */}
+                    <div id="loading-view" className="hidden text-center py-8 text-gray-600">
+                        <div className="animate-spin h-8 w-8 border-4 border-orange-400 border-t-transparent rounded-full mx-auto mb-4"></div>
+                        <p>AIが分析中です...</p>
+                    </div>
+                    {/* 結果表示 */}
+                    <div id="result-view" className="hidden space-y-4">
+                        <div className="bg-gradient-to-br from-purple-100 to-pink-100 rounded-lg p-4">
+                            <img id="preview-image" src="" alt="Preview" className="rounded-lg w-full h-auto object-contain max-h-48" />
+                        </div>
+                        <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg p-4">
+                            <div className="flex items-center justify-between mb-3">
+                                <h4 className="font-bold text-gray-800">📊 AI診断結果</h4>
+                                <span id="result-grade-badge" className="bg-orange-500 text-white px-3 py-1 rounded-full font-bold"></span>
+                            </div>
+                            <div className="space-y-2 text-sm">
+                                <div className="flex justify-between">
+                                <span>総合スコア</span>
+                                <span id="result-score" className="font-semibold text-green-600"></span>
+                                </div>
+                                <div className="flex justify-between">
+                                <span>予想CTR</span>
+                                <span id="result-ctr" className="font-semibold text-orange-600"></span>
+                                </div>
+                            </div>
+                        </div>
+                         <div id="cache-info" className="text-xs text-center text-gray-400"></div>
+                    </div>
+                    {/* エラー表示 */}
+                    <div id="error-view" className="hidden text-center py-8 text-red-600">
+                        <div className="text-4xl mb-4">⚠️</div>
+                        <p id="error-message"></p>
+                    </div>
                 </div>
 
-                {/* AI診断スコア */}
-                <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg p-4 mb-4">
-                  <div className="flex items-center justify-between mb-3">
-                    <h4 className="font-bold text-gray-800">📊 AI診断結果</h4>
-                    <span className="bg-orange-500 text-white px-3 py-1 rounded-full font-bold">B+ 82点</span>
-                  </div>
-                  <div className="space-y-2 text-sm">
-                    <div className="flex justify-between">
-                      <span>デザイン・可読性</span>
-                      <span className="font-semibold text-green-600">85点</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span>訴求力・インパクト</span>
-                      <span className="font-semibold text-orange-600">78点</span>
-                    </div>
-                    <div className="flex justify-between">
-                      <span>CTA効果予測</span>
-                      <span className="font-semibold text-blue-600">83点</span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* 生成されたコピー */}
-                <div className="bg-gradient-to-r from-green-50 to-blue-50 rounded-lg p-4">
-                  <h4 className="font-bold text-gray-800 mb-3">✍️ 生成コピー案</h4>
-                  <div className="space-y-3">
-                    <div className="bg-white rounded p-3 border-l-4 border-green-500">
-                      <div className="font-semibold text-green-700 text-sm mb-1">推奨CTA（+15%効果予測）</div>
-                      <div className="text-gray-800">"限定価格で予約する"</div>
-                    </div>
-                    <div className="bg-white rounded p-3 border-l-4 border-purple-500">
-                      <div className="font-semibold text-purple-700 text-sm mb-1">Instagram投稿文</div>
-                      <div className="text-gray-800 text-sm">「✨この夏、理想の自分に✨ DMC美容クリニックの医療脱毛で、つるすべ肌を手に入れよう🌟」</div>
-                    </div>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
@@ -536,7 +523,7 @@ app.get('/', (c) => {
             <p className="text-center text-lg text-gray-600 mb-12">
               Freeで体験、Liteで投稿前チェック・レポを解放。Proでチーム運用・高速上限。
             </p>
-            
+
             {/* 機能比較表 */}
             <div className="overflow-x-auto mb-8">
               <table className="w-full bg-white rounded-xl shadow-lg overflow-hidden">
@@ -778,7 +765,7 @@ app.get('/', (c) => {
                   <p className="text-gray-600">現時点では自動投稿は未対応です。コピー1クリックでInstagramへ貼り付け、すぐ投稿できます。</p>
                 </div>
               </div>
-              
+
               <div className="bg-white p-6 rounded-lg shadow-md">
                 <button className="faq-question w-full text-left flex justify-between items-center">
                   <span className="text-lg font-semibold text-gray-800">Q2. 予測CTAは何をしますか？</span>
@@ -788,7 +775,7 @@ app.get('/', (c) => {
                   <p className="text-gray-600">バナー内容と訴求軸から、反応が出やすいCTA文を自動提案し、推定インパクトを表示します。</p>
                 </div>
               </div>
-              
+
               <div className="bg-white p-6 rounded-lg shadow-md">
                 <button className="faq-question w-full text-left flex justify-between items-center">
                   <span className="text-lg font-semibold text-gray-800">Q3. レポートの形式は？</span>
@@ -798,7 +785,7 @@ app.get('/', (c) => {
                   <p className="text-gray-600">PDFまたは共有リンクで出力できます（Lite〜）。</p>
                 </div>
               </div>
-              
+
               <div className="bg-white p-6 rounded-lg shadow-md">
                 <button className="faq-question w-full text-left flex justify-between items-center">
                   <span className="text-lg font-semibold text-gray-800">Q4. 薬機法チェックはどのプランで使えますか？</span>
@@ -808,7 +795,7 @@ app.get('/', (c) => {
                   <p className="text-gray-600">全プランで利用可能です（対象カテゴリ選択時に自動ON）。</p>
                 </div>
               </div>
-              
+
               <div className="bg-white p-6 rounded-lg shadow-md">
                 <button className="faq-question w-full text-left flex justify-between items-center">
                   <span className="text-lg font-semibold text-gray-800">Q5. 対応している画像形式は？</span>
@@ -818,7 +805,7 @@ app.get('/', (c) => {
                   <p className="text-gray-600">PNG/JPG、最大10MB、推奨1200×630px。対応媒体：Instagram / Facebook / GDN / YDA</p>
                 </div>
               </div>
-              
+
               <div className="bg-white p-6 rounded-lg shadow-md">
                 <button className="faq-question w-full text-left flex justify-between items-center">
                   <span className="text-lg font-semibold text-gray-800">Q6. 自動投稿はできますか？</span>
@@ -828,7 +815,7 @@ app.get('/', (c) => {
                   <p className="text-gray-600">現時点では未対応です。コピー1クリックでInstagramへ貼り付けて投稿できます。</p>
                 </div>
               </div>
-              
+
               <div className="bg-white p-6 rounded-lg shadow-md">
                 <button className="faq-question w-full text-left flex justify-between items-center">
                   <span className="text-lg font-semibold text-gray-800">Q7. 薬機法チェックはどのプランで使えますか？</span>
@@ -838,7 +825,7 @@ app.get('/', (c) => {
                   <p className="text-gray-600">全プランで利用できます（対象カテゴリ選択時に自動ON）。</p>
                 </div>
               </div>
-              
+
               <div className="bg-white p-6 rounded-lg shadow-md">
                 <button className="faq-question w-full text-left flex justify-between items-center">
                   <span className="text-lg font-semibold text-gray-800">Q8. 契約期間の縛りはありますか？</span>
@@ -968,7 +955,5 @@ app.get('/', (c) => {
     </div>
   )
 })
-
-
 
 export default app
